@@ -11,13 +11,7 @@ import java.util.Map;
 import java.util.Stack;
 
 public class Application {
-    public Application(String title) {
-        this.setTitle(title);
-        setPages(new HashMap<Class, PageBase>());
-        setHistory(new Stack<PageBase>());
 
-        BuildPages();
-    }
 
     // name of the page
     private String Title;
@@ -51,7 +45,15 @@ public class Application {
     }
 
     public final PageBase getCurrentPage() {
-        return getHistory().empty() ? getHistory().peek() : null;
+        return !getHistory().empty() ? getHistory().peek() : null;
+    }
+
+    public Application(String title) {
+        this.setTitle(title);
+        setPages(new HashMap<Class, PageBase>());
+        setHistory(new Stack<PageBase>());
+
+        BuildPages();
     }
 
     // navigation to home
@@ -127,18 +129,17 @@ public class Application {
             getCurrentPage();
             return;
         }
-
         // leave the current page
 
         // select the new page
-        PageBase nextPage;
+        PageBase nextPage = null;
 
         OutObject<PageBase> tempOut_nextPage = new OutObject<PageBase>();
         if (!Pages.containsKey(pageClazz)) {
-            nextPage = tempOut_nextPage.outArgValue;
+//            nextPage = tempOut_nextPage.outArgValue;
 //            throw new KeyNotFoundException(String.format("The given page %1$s was not present in the program", pageType.getSimpleName()));
         } else {
-            nextPage = tempOut_nextPage.outArgValue;
+            nextPage = Pages.get(pageClazz);
         }
 
         // enter the new page
