@@ -8,29 +8,26 @@ import UI.pages.Messages.MessagesPage;
 import UI.pages.Rentals.RentalsPage;
 import UI.pages.Titles.TitlesPage;
 
-public class MainPage extends MenuPageBase
-{
+public class MainPage extends MenuPageBase {
     private static final String MAIN_PAGE_CONST = ">>>> Welcome to our Library <<<<";
-    public MainPage(Application app)
-    {
+
+    public MainPage(Application app) {
         super(MAIN_PAGE_CONST, app);
-        InitializeMenuOptions();
+        initializeMenuOptions();
     }
 
-    private void InitializeMenuOptions()
-    {
-        this.getMenu().Add(1, "Titles", () -> this.getApplication().navigateTo(TitlesPage.class));
-        this.getMenu().Add(2, "Members", () -> this.getApplication().navigateTo(MembersPage.class));
-        this.getMenu().Add(3, "Rentals", () -> this.getApplication().navigateTo(RentalsPage.class));
-        this.getMenu().Add(4, "Messages", () -> this.getApplication().navigateTo(MessagesPage.class));
-        this.getMenu().Add(5, "Exit", () -> this.getApplication().Exit());
+    private void initializeMenuOptions() {
+        this.getMenu().add(1, "Titles", () -> this.getApplication().navigateTo(TitlesPage.class));
+        this.getMenu().add(2, "Members", () -> this.getApplication().navigateTo(MembersPage.class));
+        this.getMenu().add(3, "Rentals", () -> this.getApplication().navigateTo(RentalsPage.class));
+        this.getMenu().add(4, "Messages", () -> this.getApplication().navigateTo(MessagesPage.class));
+        this.getMenu().add(5, "Exit", () -> this.getApplication().Exit());
     }
 
     @Override
-    public void Display()
-    {
-        OutputHelper.WriteLine(">>>> Welcome to our Library <<<<");
-        super.Display();
+    public void display() {
+//        OutputHelper.WriteLine(">>>> Welcome to our Library <<<<");
+        super.display();
         OutputHelper.WriteLine("\n");
 
         this.getMenu().display();

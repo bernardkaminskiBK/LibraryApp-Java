@@ -3,12 +3,18 @@ package UI.base;
 import UI.Application;
 
 public abstract class PageBase {
+
+    private String Title;
+    private Application Application;
+
     public PageBase(String title, Application application) {
         this.setTitle(title);
         this.setApplication(application);
     }
 
-    private String Title;
+    public void display() {
+        System.out.println(getTitle());
+    }
 
     public final String getTitle() {
         return Title;
@@ -18,8 +24,6 @@ public abstract class PageBase {
         Title = value;
     }
 
-    private Application Application;
-
     public final Application getApplication() {
         return Application;
     }
@@ -28,8 +32,5 @@ public abstract class PageBase {
         Application = value;
     }
 
-    public void Display() {
-        System.out.println(getTitle());
-    }
 }
 

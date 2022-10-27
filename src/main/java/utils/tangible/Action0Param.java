@@ -1,4 +1,4 @@
-package UI.tangible;
+package utils.tangible;
 
 @FunctionalInterface
 public interface Action0Param

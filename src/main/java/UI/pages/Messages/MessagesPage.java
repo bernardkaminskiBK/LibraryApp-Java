@@ -1,6 +1,5 @@
 package UI.pages.Messages;
 
-import UI.Application;
 import UI.base.MenuPageBase;
 import UI.helpers.InputHelper;
 
@@ -11,15 +10,14 @@ public class MessagesPage extends MenuPageBase
     public MessagesPage(UI.Application app)
     {
         super(PAGE_HEADER, app);
-
     }
 
     @Override
-    public void Display()
+    public void display()
     {
-        super.Display();
+        super.display();
 
-//        InputHelper.ReadKey("Press any key to return to Main menu...");
+        InputHelper.ReadKey("Press enter to return to Main menu...");
 
         this.getApplication().navigateBack();
     }

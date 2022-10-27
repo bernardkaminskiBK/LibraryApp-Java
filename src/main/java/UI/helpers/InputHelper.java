@@ -1,15 +1,19 @@
 package UI.helpers;
 
-import UI.tangible.OutObject;
-import UI.tangible.TryParseHelper;
+import utils.tangible.OutObject;
+import utils.tangible.TryParseHelper;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.time.*;
 
 public final class InputHelper {
+
+    //C# TO JAVA CONVERTER WARNING: Nullable reference types have no equivalent in Java:
+    //ORIGINAL LINE: string? input = Console.ReadLine();
     public static int ReadInt() {
-//C# TO JAVA CONVERTER WARNING: Nullable reference types have no equivalent in Java:
-//ORIGINAL LINE: string? input = Console.ReadLine();
         String input = new Scanner(System.in).nextLine();
         int value;
 
@@ -41,11 +45,16 @@ public final class InputHelper {
         return ReadInt(minValue, maxValue);
     }
 
-//    public static ConsoleKeyInfo ReadKey(String prompt) {
-//        OutputHelper.WriteLine(prompt);
-//        return Console.ReadKey();
-//    }
+    public static void ReadKey(String prompt) {
+        OutputHelper.WriteLine(prompt);
 
+        try {
+            new BufferedReader(new InputStreamReader(System.in)).readLine();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
 
     public static String ReadString() {
         return new Scanner(System.in).nextLine();
@@ -71,10 +80,10 @@ public final class InputHelper {
         return value;
     }
 
-
     public static LocalDateTime ReadDateTime(String prompt) {
         OutputHelper.WriteLine(prompt);
         return ReadDateTime();
     }
+
 }
 

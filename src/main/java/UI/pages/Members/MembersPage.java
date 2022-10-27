@@ -3,26 +3,21 @@ package UI.pages.Members;
 import UI.Application;
 import UI.base.MenuPageBase;
 
-public class MembersPage extends MenuPageBase
-{
+public class MembersPage extends MenuPageBase {
     private static final String PAGE_HEADER = "Members page";
 
-    public MembersPage(Application app)
-    {
+    public MembersPage(Application app) {
         super(PAGE_HEADER, app);
-        InitializeOptions();
+        initializeOptions();
     }
 
-
-    private void InitializeOptions()
-    {
-        this.getMenu().Add(1, "Back", () -> this.getApplication().navigateBack());
+    private void initializeOptions() {
+        this.getMenu().add(1, "Back", () -> this.getApplication().navigateBack());
     }
 
     @Override
-    public void Display()
-    {
-        super.Display();
+    public void display() {
+        super.display();
 
         this.getMenu().display();
     }
