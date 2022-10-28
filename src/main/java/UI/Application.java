@@ -43,7 +43,7 @@ public class Application {
                 getCurrentPage().display();
             }
         } catch (RuntimeException | KeyNotFoundException ex) {
-            OutputHelper.WriteLine(ex.getMessage());
+            OutputHelper.writeLine(ex.getMessage());
 
         }
     }

@@ -27,13 +27,9 @@ public class DvdRepository implements IDvdRepository {
     private ArrayList<Dvd> getAllDvd(ResultSet rs) throws SQLException {
         ArrayList<Dvd> dvds = new ArrayList<>();
 
-        while(rs.next()) {
+        while (rs.next()) {
             Dvd dvd = new Dvd();
-            dvd.setAuthor(rs.getString("Author"));
-            dvd.setName(rs.getString("Name"));
-            dvd.setAvailableCopies(rs.getInt("AvailableCopies"));
-            dvd.setNumberOfChapters(rs.getInt("NumberOfChapters"));
-            dvd.setNumberOfMinutes(rs.getInt("NumberOfMinutes"));
+            getTitleFromResultSet(rs, dvd);
             dvds.add(dvd);
         }
 
@@ -45,7 +41,7 @@ public class DvdRepository implements IDvdRepository {
         String insertDvdStmt = "" +
                 "INSERT INTO librarydb.dvd " +
                 "(Author, Name, AvailableCopies, NumberOfChapters, NumberOfMinutes) " +
-                "VALUES (" + "'" + entity.getAuthor() + "'" + ", " + "'" + entity.getName() + "'" + ", " + entity.getAvailableCopies() + ", " + entity.getNumberOfChapters() + ", " +  entity.getNumberOfMinutes() + ")";
+                "VALUES (" + "'" + entity.getAuthor() + "'" + ", " + "'" + entity.getName() + "'" + ", " + entity.getAvailableCopies() + ", " + entity.getNumberOfChapters() + ", " + entity.getNumberOfMinutes() + ")";
         try {
             DatabaseContext.dbExecuteUpdate(insertDvdStmt);
             return entity;
@@ -54,6 +50,57 @@ public class DvdRepository implements IDvdRepository {
         }
 
         return null;
+    }
+
+    @Override
+    public Dvd delete(int id) {
+        String deleteStmt = "DELETE FROM librarydb.dvd WHERE id = " + id;
+
+        var entityDvd = this.getById(id);
+        if (entityDvd == null) {
+            return null;
+        }
+
+        try {
+            DatabaseContext.dbExecuteUpdate(deleteStmt);
+            return entityDvd;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Override
+    public Dvd getById(int id) {
+        String selectStmt = "SELECT * FROM librarydb.dvd WHERE Id = " + id;
+
+        try {
+            ResultSet rsEmp = DatabaseContext.dbExecuteQuery(selectStmt);
+            return getDvdFromResultSet(rsEmp);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    private Dvd getDvdFromResultSet(ResultSet rsDvd) throws SQLException {
+        Dvd dvd = null;
+        if (rsDvd.next()) {
+            dvd = new Dvd();
+            getTitleFromResultSet(rsDvd, dvd);
+        }
+        return dvd;
+    }
+
+    private void getTitleFromResultSet(ResultSet rsDvd, Dvd dvd) throws SQLException {
+        dvd.setId(rsDvd.getInt("Id"));
+        dvd.setAuthor(rsDvd.getString("Author"));
+        dvd.setName(rsDvd.getString("Name"));
+        dvd.setAvailableCopies(rsDvd.getInt("AvailableCopies"));
+        dvd.setNumberOfChapters(rsDvd.getInt("NumberOfChapters"));
+        dvd.setNumberOfMinutes(rsDvd.getInt("NumberOfMinutes"));
     }
 
 }

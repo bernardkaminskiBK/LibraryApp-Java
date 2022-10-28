@@ -13,7 +13,7 @@ public final class InputHelper {
 
     //C# TO JAVA CONVERTER WARNING: Nullable reference types have no equivalent in Java:
     //ORIGINAL LINE: string? input = Console.ReadLine();
-    public static int ReadInt() {
+    public static int readInt() {
         String input = new Scanner(System.in).nextLine();
         int value;
 
@@ -27,25 +27,25 @@ public final class InputHelper {
         return value;
     }
 
-    public static int ReadInt(int minValue, int maxValue) {
-        var value = ReadInt();
+    public static int readInt(int minValue, int maxValue) {
+        var value = readInt();
 
         while (value < minValue || value > maxValue) {
-            OutputHelper.WriteLine(String.format("Please enter a number in the range from %1$s to %2$s", minValue, maxValue));
-            value = ReadInt();
+            OutputHelper.writeLine(String.format("Please enter a number in the range from %1$s to %2$s", minValue, maxValue));
+            value = readInt();
         }
 
         return value;
     }
 
-    public static int ReadInt(String prompt, int minValue, int maxValue) {
-        OutputHelper.WriteLine(prompt);
+    public static int readInt(String prompt, int minValue, int maxValue) {
+        OutputHelper.writeLine(prompt);
 
-        return ReadInt(minValue, maxValue);
+        return readInt(minValue, maxValue);
     }
 
-    public static void ReadKey(String prompt) {
-        OutputHelper.WriteLine(prompt);
+    public static void readKey(String prompt) {
+        OutputHelper.writeLine(prompt);
 
         try {
             new BufferedReader(new InputStreamReader(System.in)).readLine();
@@ -80,7 +80,7 @@ public final class InputHelper {
     }
 
     public static LocalDateTime ReadDateTime(String prompt) {
-        OutputHelper.WriteLine(prompt);
+        OutputHelper.writeLine(prompt);
         return ReadDateTime();
     }
 

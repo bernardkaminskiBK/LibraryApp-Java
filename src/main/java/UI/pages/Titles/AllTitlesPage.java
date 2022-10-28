@@ -30,7 +30,7 @@ public class AllTitlesPage extends PageBase {
 
         displayAllTitles();
 
-        InputHelper.ReadKey("Press enter to return to Main menu...");
+        InputHelper.readKey("Press enter to return to Main menu...");
         this.getApplication().navigateBack();
     }
 
@@ -38,7 +38,7 @@ public class AllTitlesPage extends PageBase {
         List<Title> titles = getAllTitles();
 
         if (titles.size() == 0) {
-            OutputHelper.WriteLine("No titles available");
+            OutputHelper.writeLine("No titles available");
         }
 
         StringBuilder sb = new StringBuilder();
@@ -46,7 +46,7 @@ public class AllTitlesPage extends PageBase {
             sb.append(title.toString()).append("\n");
         }
 
-        OutputHelper.WriteLine(sb.toString());
+        OutputHelper.writeLine(sb.toString());
     }
 
     private List<Title> getAllTitles() {

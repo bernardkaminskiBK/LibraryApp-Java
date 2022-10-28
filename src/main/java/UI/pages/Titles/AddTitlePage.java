@@ -37,7 +37,7 @@ public class AddTitlePage extends MenuPageBase {
 
         var author = InputHelper.ReadString("Enter Author's name: ");
         var titleName = InputHelper.ReadString("Enter title name: ");
-        var numberOfCopies = InputHelper.ReadInt("Enter available copies: ", 1, Integer.MAX_VALUE);
+        var numberOfCopies = InputHelper.readInt("Enter available copies: ", 1, Integer.MAX_VALUE);
 
         switch (titleType) {
             case book:
@@ -47,7 +47,7 @@ public class AddTitlePage extends MenuPageBase {
                 addDvd(author, titleName, numberOfCopies);
                 break;
             default:
-                OutputHelper.WriteLine("Title type not supported");
+                OutputHelper.writeLine("Title type not supported");
                 break;
         }
     }
@@ -56,7 +56,7 @@ public class AddTitlePage extends MenuPageBase {
         var book = new Book();
 
         var isbn = InputHelper.ReadString("Enter ISBN: ");
-        var numberOfPages = InputHelper.ReadInt("Enter number of Pages: ", 1, Integer.MAX_VALUE);
+        var numberOfPages = InputHelper.readInt("Enter number of Pages: ", 1, Integer.MAX_VALUE);
 
         book.setAuthor(author);
         book.setName(name);
@@ -68,14 +68,14 @@ public class AddTitlePage extends MenuPageBase {
             var result = _bookRepository == null ? null : _bookRepository.create(book);
 
             if (result == null) {
-                OutputHelper.WriteLine("Book not added!!");
+                OutputHelper.writeLine("Book not added!!");
             } else {
-                OutputHelper.WriteLine("Book added succesfully.");
+                OutputHelper.writeLine("Book added succesfully.");
             }
         } catch (RuntimeException ex) {
-            OutputHelper.WriteLine("Book not added!!");
+            OutputHelper.writeLine("Book not added!!");
         } finally {
-            InputHelper.ReadKey("Press any key to continue...");
+            InputHelper.readKey("Press any key to continue...");
             this.getApplication().navigateBack();
 
         }
@@ -84,8 +84,8 @@ public class AddTitlePage extends MenuPageBase {
     private void addDvd(String author, String name, int numberOfCopies) {
         var dvd = new Dvd();
 
-        var length = InputHelper.ReadInt("Enter Length (minutes): ", 1, 600);
-        var numberOfChapters = InputHelper.ReadInt("Enter number of chapters: ", 1, 25);
+        var length = InputHelper.readInt("Enter Length (minutes): ", 1, 600);
+        var numberOfChapters = InputHelper.readInt("Enter number of chapters: ", 1, 25);
 
         dvd.setAuthor(author);
         dvd.setName(name);
@@ -97,15 +97,15 @@ public class AddTitlePage extends MenuPageBase {
             var result = _dvdRepository == null ? null : _dvdRepository.create(dvd);
 
             if (result == null) {
-                OutputHelper.WriteLine("Dvd not added!!");
+                OutputHelper.writeLine("Dvd not added!!");
             } else {
-                OutputHelper.WriteLine("Dvd added succesfully.");
+                OutputHelper.writeLine("Dvd added successfully.");
             }
         } catch (RuntimeException ex) {
-            OutputHelper.WriteLine("Dvd not added!!");
+            OutputHelper.writeLine("Dvd not added!!");
 
         } finally {
-            InputHelper.ReadKey("Press any key to continue...");
+            InputHelper.readKey("Press any key to continue...");
             this.getApplication().navigateBack();
         }
 

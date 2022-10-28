@@ -15,10 +15,10 @@ public class Menu {
 
     public final void display() {
         for (var option : getOptions()) {
-            OutputHelper.WriteLine(String.format("%1$s - %2$s", option.getOrdinal(), option.getName()));
+            OutputHelper.writeLine(String.format("%1$s - %2$s", option.getOrdinal(), option.getName()));
         }
 
-        int choice = InputHelper.ReadInt("Choose an option: ", 1, getOptions().size());
+        int choice = InputHelper.readInt("Choose an option: ", 1, getOptions().size());
 
         getOptions().get(choice - 1).getCallBack().invoke();
     }

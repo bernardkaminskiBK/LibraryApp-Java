@@ -28,7 +28,7 @@ public class MainPage extends MenuPageBase {
     public void display() {
 //        OutputHelper.WriteLine(">>>> Welcome to our Library <<<<");
         super.display();
-        OutputHelper.WriteLine("\n");
+        OutputHelper.writeLine("\n");
 
         this.getMenu().display();
     }

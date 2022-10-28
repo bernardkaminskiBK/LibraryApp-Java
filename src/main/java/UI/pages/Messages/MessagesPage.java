@@ -17,7 +17,7 @@ public class MessagesPage extends MenuPageBase
     {
         super.display();
 
-        InputHelper.ReadKey("Press enter to return to Main menu...");
+        InputHelper.readKey("Press enter to return to Main menu...");
         this.getApplication().navigateBack();
     }
 }
