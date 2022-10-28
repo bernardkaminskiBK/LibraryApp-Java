@@ -19,7 +19,6 @@ public final class InputHelper {
 
         OutObject<Integer> tempOut_value = new OutObject<Integer>();
         while (!TryParseHelper.tryParseInt(input, tempOut_value)) {
-            value = tempOut_value.outArgValue;
             System.out.println("Please enter a valid value.");
             input = new Scanner(System.in).nextLine();
         }

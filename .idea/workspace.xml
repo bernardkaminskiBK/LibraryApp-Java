@@ -5,28 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72ab1684-ba77-446c-8c88-d77f075200dc" name="Changes" comment="finished lektion 15">
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AddTitlePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AllTitlesPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/RemoveTitlePage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IBookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IDvdRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/base/EntityBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/entities/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/entities/Dvd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/core/entities/Title.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/InfrastructureModule.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/ServiceProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/DatabaseContext.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/BookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/DvdRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/enums/eTitleType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/UIElements/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Option.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Messages/MessagesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Messages/MessagesPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/TitlesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/TitlesPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/helpers/InputHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/helpers/InputHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AddTitlePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AddTitlePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/base/EntityBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/base/EntityBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/entities/Title.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/entities/Title.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/DvdRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/DvdRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,13 +25,14 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Lekcia_15" />
+        <entry key="$PROJECT_DIR$" value="Lekcia_16" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

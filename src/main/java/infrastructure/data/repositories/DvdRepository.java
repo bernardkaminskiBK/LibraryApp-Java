@@ -40,4 +40,20 @@ public class DvdRepository implements IDvdRepository {
         return dvds;
     }
 
+    @Override
+    public Dvd create(Dvd entity) {
+        String insertDvdStmt = "" +
+                "INSERT INTO librarydb.dvd " +
+                "(Author, Name, AvailableCopies, NumberOfChapters, NumberOfMinutes) " +
+                "VALUES (" + "'" + entity.getAuthor() + "'" + ", " + "'" + entity.getName() + "'" + ", " + entity.getAvailableCopies() + ", " + entity.getNumberOfChapters() + ", " +  entity.getNumberOfMinutes() + ")";
+        try {
+            DatabaseContext.dbExecuteUpdate(insertDvdStmt);
+            return entity;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }

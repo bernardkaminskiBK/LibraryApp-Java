@@ -27,7 +27,7 @@ public class BookRepository implements IBookRepository {
     private ArrayList<Book> getAllBook(ResultSet rs) throws SQLException {
         ArrayList<Book> books = new ArrayList<>();
 
-        while(rs.next()) {
+        while (rs.next()) {
             Book book = new Book();
             book.setAuthor(rs.getString("Author"));
             book.setName(rs.getString("Name"));
@@ -39,4 +39,21 @@ public class BookRepository implements IBookRepository {
 
         return books;
     }
+
+    @Override
+    public Book create(Book entity) {
+        String insertStmt = "" +
+                "INSERT INTO librarydb.book " +
+                "(Author, Name, AvailableCopies, NumberOfPages, ISBN) " +
+                "VALUES (" + "'" + entity.getAuthor() + "'" + ", " + "'" + entity.getName() + "'" + ", " + entity.getAvailableCopies() + ", " + entity.getNumberOfPages() + ", " + "'" + entity.getISBN() + "'" + ")";
+        try {
+            DatabaseContext.dbExecuteUpdate(insertStmt);
+            return entity;
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
 }

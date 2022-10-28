@@ -3,6 +3,6 @@ package core.base;
 
 public class EntityBase {
 
-    public Integer id;
+    public Integer id = 0;
 
 }

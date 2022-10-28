@@ -4,14 +4,14 @@ import core.base.EntityBase;
 
 public abstract class Title extends EntityBase {
 
-    private String Author;
-    private String Name;
-    private int AvailableCopies;
+    private String author;
+    private String name;
+    private int availableCopies;
 
     public Title(String author, String name, int availableCopies) {
-        Author = author;
-        Name = name;
-        AvailableCopies = availableCopies;
+        this.author = author;
+        this.name = name;
+        this.availableCopies = availableCopies;
     }
 
     public Title() {
@@ -19,27 +19,27 @@ public abstract class Title extends EntityBase {
     }
 
     public final String getAuthor() {
-        return Author;
+        return author;
     }
 
     public final void setAuthor(String value) {
-        Author = value;
+        author = value;
     }
 
     public final String getName() {
-        return Name;
+        return name;
     }
 
     public final void setName(String value) {
-        Name = value;
+        name = value;
     }
 
     public final int getAvailableCopies() {
-        return AvailableCopies;
+        return availableCopies;
     }
 
     public final void setAvailableCopies(int value) {
-        AvailableCopies = value;
+        availableCopies = value;
     }
 }
 
