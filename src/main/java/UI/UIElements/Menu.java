@@ -2,7 +2,7 @@ package UI.UIElements;
 
 import UI.helpers.InputHelper;
 import UI.helpers.OutputHelper;
-import utils.custom_exceptions.tangible.Action0Param;
+import utils.tangible.Action0Param;
 
 import java.util.*;
 

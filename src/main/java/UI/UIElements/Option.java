@@ -1,6 +1,7 @@
 package UI.UIElements;
 
-import utils.custom_exceptions.tangible.Action0Param;
+
+import utils.tangible.Action0Param;
 
 public class Option {
 

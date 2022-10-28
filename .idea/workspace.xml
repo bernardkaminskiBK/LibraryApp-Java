@@ -5,28 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72ab1684-ba77-446c-8c88-d77f075200dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Option.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/base/MenuPageBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/base/PageBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/helpers/InputHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/helpers/OutputHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/MainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Members/MembersPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Messages/MessagesPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Rentals/RentalsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/TitlesPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/tangible/Action0Param.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/tangible/OutObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/tangible/TryParseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/UIElements/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Option.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +24,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/UI/UIElements/Option.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -83,6 +68,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
@@ -125,7 +111,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/UI/Application.java</url>
           <line>123</line>
-          <properties class="UI.Application" method="setPage">
+          <properties class="UI.Application">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
