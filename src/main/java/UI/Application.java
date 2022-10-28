@@ -6,7 +6,12 @@ import UI.pages.MainPage;
 import UI.pages.Members.MembersPage;
 import UI.pages.Messages.MessagesPage;
 import UI.pages.Rentals.RentalsPage;
+import UI.pages.Titles.AddTitlePage;
+import UI.pages.Titles.AllTitlesPage;
+import UI.pages.Titles.RemoveTitlePage;
 import UI.pages.Titles.TitlesPage;
+
+import infrastructure.ServiceProvider;
 import utils.custom_exceptions.KeyNotFoundException;
 
 import java.util.HashMap;
@@ -19,13 +24,14 @@ public class Application {
     private String Title;
     private HashMap<Class, PageBase> Pages;
     private Stack<PageBase> history;
+    private ServiceProvider services;
 
     public Application(String title) {
         this.setTitle(title);
         setPages(new HashMap<>());
         setHistory(new Stack<>());
-
-        BuildPages();
+        buildServices();
+        buildPages();
     }
 
     public final void run() {
@@ -116,11 +122,18 @@ public class Application {
         getCurrentPage();
     }
 
-    private void BuildPages() {
+    private void buildServices() {
+        this.services = new ServiceProvider();
+    }
+
+    private void buildPages() {
         this.addPage(new MainPage(this));
 
         //Titles
         this.addPage(new TitlesPage(this));
+        this.addPage(new AllTitlesPage(this));
+        this.addPage(new AddTitlePage(this));
+        this.addPage(new RemoveTitlePage(this));
 
         // Members
         this.addPage(new MembersPage(this));
@@ -158,6 +171,10 @@ public class Application {
 
     public final PageBase getCurrentPage() {
         return !getHistory().empty() ? getHistory().peek() : null;
+    }
+
+    public ServiceProvider getServices() {
+        return services;
     }
 
     public final void Exit() {

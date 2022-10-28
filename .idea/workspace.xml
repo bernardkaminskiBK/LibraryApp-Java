@@ -4,29 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72ab1684-ba77-446c-8c88-d77f075200dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Option.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/base/MenuPageBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/base/PageBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/helpers/InputHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/helpers/OutputHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/MainPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Members/MembersPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Messages/MessagesPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Rentals/RentalsPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/TitlesPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/tangible/Action0Param.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/tangible/OutObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/UI/tangible/TryParseHelper.java" afterDir="false" />
+    <list default="true" id="72ab1684-ba77-446c-8c88-d77f075200dc" name="Changes" comment="finished lektion 15">
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AddTitlePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AllTitlesPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/RemoveTitlePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IBookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IDvdRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/base/EntityBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/entities/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/entities/Dvd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/entities/Title.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/InfrastructureModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/ServiceProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/DatabaseContext.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/BookRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/DvdRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/UIElements/Option.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Option.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Messages/MessagesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Messages/MessagesPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/TitlesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/TitlesPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,22 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Lekcia_15" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/UI/UIElements/Option.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/core/base/EntityBase.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/core/entities/Book.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/core/entities/Dvd.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/core/entities/Title.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/BookRepository.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/DvdRepository.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -65,6 +80,9 @@
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="core.abstractions" />
     </key>
   </component>
   <component name="RunManager">
@@ -101,8 +119,31 @@
       <workItem from="1665657306611" duration="15000" />
       <workItem from="1666616922870" duration="5974000" />
       <workItem from="1666712059935" duration="916000" />
-      <workItem from="1666876068394" duration="7849000" />
+      <workItem from="1666876068394" duration="21466000" />
+      <workItem from="1666959246321" duration="14145000" />
     </task>
+    <task id="LOCAL-00001" summary="init commit">
+      <created>1666886884379</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666886884379</updated>
+    </task>
+    <task id="LOCAL-00002" summary="save point, resolved trouble with stack and hash">
+      <created>1666888235920</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666888235920</updated>
+    </task>
+    <task id="LOCAL-00003" summary="finished lektion 15">
+      <created>1666893165149</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666893165149</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,19 +160,10 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/UI/Application.java</url>
-          <line>123</line>
-          <properties class="UI.Application" method="setPage">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init commit" />
+    <MESSAGE value="save point, resolved trouble with stack and hash" />
+    <MESSAGE value="finished lektion 15" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished lektion 15" />
   </component>
 </project>

@@ -13,13 +13,15 @@ public class TitlesPage extends MenuPageBase {
     }
 
     private void InitializeOptions() {
-        this.getMenu().add(1, "Back", () -> this.getApplication().navigateBack());
+        this.getMenu().add(1, "Show All Titles", () -> this.getApplication().navigateTo(AllTitlesPage.class));
+        this.getMenu().add(2, "Add Title", () -> this.getApplication().navigateTo(AddTitlePage.class));
+        this.getMenu().add(3, "Remove Title", () -> this.getApplication().navigateTo(RemoveTitlePage.class));
+        this.getMenu().add(4, "Back", () -> this.getApplication().navigateBack());
     }
 
     @Override
     public void display() {
         super.display();
-
         this.getMenu().display();
     }
 
