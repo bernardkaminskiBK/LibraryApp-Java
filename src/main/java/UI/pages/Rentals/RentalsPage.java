@@ -19,7 +19,13 @@ public class RentalsPage extends MenuPageBase {
     }
 
     private void initializeMenu() {
-        this.getMenu().add(1, "Back", () -> this.getApplication().navigateBack());
+        this.getMenu().add(1, "Rent a title", () -> this.getApplication().navigateTo(RentATitlePage.class));
+        this.getMenu().add(2, "Return a title", () -> this.getApplication().navigateTo(ReturnTitlePage.class));
+        this.getMenu().add(3, "Prolong the rental", () -> this.getApplication().navigateTo(ProlongRentalPage.class));
+        this.getMenu().add(4, "Show all rentals", () -> this.getApplication().navigateTo(AllRentalsPage.class));
+        this.getMenu().add(5, "Show rentals past due", () -> this.getApplication().navigateTo(PastDueRentalsPage.class));
+        this.getMenu().add(6, "Show Queue", () -> this.getApplication().navigateTo(QueuePage.class));
+        this.getMenu().add(7, "Back", () -> this.getApplication().navigateBack());
     }
 }
 
