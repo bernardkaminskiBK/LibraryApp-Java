@@ -6,13 +6,14 @@ import utils.tangible.TryParseHelper;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
-import java.time.*;
 
 public final class InputHelper {
 
-    //C# TO JAVA CONVERTER WARNING: Nullable reference types have no equivalent in Java:
-    //ORIGINAL LINE: string? input = Console.ReadLine();
+    private static String resultDate;
+
     public static int readInt() {
         String input = new Scanner(System.in).nextLine();
         int value;
@@ -55,33 +56,43 @@ public final class InputHelper {
 
     }
 
-    public static String ReadString() {
+    public static String readString() {
         return new Scanner(System.in).nextLine();
     }
 
-    public static String ReadString(String prompt) {
+    public static String readString(String prompt) {
         System.out.print(prompt);
         return new Scanner(System.in).nextLine();
     }
 
-    public static LocalDateTime ReadDateTime() {
+    public static String readDateTime() {
         String input = new Scanner(System.in).nextLine();
-        LocalDateTime value = LocalDateTime.MIN;
 
-//        OutObject<LocalDateTime> tempOut_value = new OutObject<LocalDateTime>();
-//        while (!LocalDateTime.TryParse(input, tempOut_value)) {
-//            value = tempOut_value.outArgValue;
-//            System.out.println("Please enter a valid value.");
-//            input = new Scanner(System.in).nextLine();
-//        }
-//        value = tempOut_value.outArgValue;
-
-        return value;
+        while (!validateDate(input)) {
+            System.out.println("Please enter a valid value.");
+            input = new Scanner(System.in).nextLine();
+        }
+        return resultDate;
     }
 
-    public static LocalDateTime ReadDateTime(String prompt) {
+    public static String readDateTime(String prompt) {
         OutputHelper.writeLine(prompt);
-        return ReadDateTime();
+        return readDateTime();
+    }
+
+    private static boolean validateDate(String strDate) {
+        if (!strDate.trim().equals("")) {
+            SimpleDateFormat sdfrmt = new SimpleDateFormat("dd.MM.yyyy");
+            sdfrmt.setLenient(false);
+
+            try {
+                Date date = sdfrmt.parse(strDate);
+                resultDate = sdfrmt.format(date);
+            } catch (ParseException e) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

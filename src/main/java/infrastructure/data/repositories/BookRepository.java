@@ -76,8 +76,8 @@ public class BookRepository implements IBookRepository {
         String selectStmt = "SELECT * FROM librarydb.book WHERE Id = " + id;
 
         try {
-            ResultSet rsEmp = DatabaseContext.dbExecuteQuery(selectStmt);
-            return getBookFromResultSet(rsEmp);
+            ResultSet resultSet = DatabaseContext.dbExecuteQuery(selectStmt);
+            return getBookFromResultSet(resultSet);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

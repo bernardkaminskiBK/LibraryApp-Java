@@ -51,8 +51,8 @@ public class Member extends EntityBase {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
-        this.dateOfBirth = new SimpleDateFormat("dd.MM.yyyy").format(dateOfBirth);
+    public void setDateOfBirth(String dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
     }
 
     @Override

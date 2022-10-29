@@ -35,8 +35,8 @@ public class AddTitlePage extends MenuPageBase {
     private void addTitle(eTitleType titleType) {
 //        Console.Clear();
 
-        var author = InputHelper.ReadString("Enter Author's name: ");
-        var titleName = InputHelper.ReadString("Enter title name: ");
+        var author = InputHelper.readString("Enter Author's name: ");
+        var titleName = InputHelper.readString("Enter title name: ");
         var numberOfCopies = InputHelper.readInt("Enter available copies: ", 1, Integer.MAX_VALUE);
 
         switch (titleType) {
@@ -55,7 +55,7 @@ public class AddTitlePage extends MenuPageBase {
     private void addBook(String author, String name, int availableCopies) {
         var book = new Book();
 
-        var isbn = InputHelper.ReadString("Enter ISBN: ");
+        var isbn = InputHelper.readString("Enter ISBN: ");
         var numberOfPages = InputHelper.readInt("Enter number of Pages: ", 1, Integer.MAX_VALUE);
 
         book.setAuthor(author);
@@ -70,7 +70,7 @@ public class AddTitlePage extends MenuPageBase {
             if (result == null) {
                 OutputHelper.writeLine("Book not added!!");
             } else {
-                OutputHelper.writeLine("Book added succesfully.");
+                OutputHelper.writeLine("Book added successfully.");
             }
         } catch (RuntimeException ex) {
             OutputHelper.writeLine("Book not added!!");
@@ -103,7 +103,6 @@ public class AddTitlePage extends MenuPageBase {
             }
         } catch (RuntimeException ex) {
             OutputHelper.writeLine("Dvd not added!!");
-
         } finally {
             InputHelper.readKey("Press any key to continue...");
             this.getApplication().navigateBack();
