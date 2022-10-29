@@ -16,10 +16,10 @@ public class RemoveTitlePage extends PageBase {
     public final IBookRepository _bookRepository;
     private final IDvdRepository _dvdRepository;
 
-    public RemoveTitlePage(Application application) {
-        super(PAGE_HEADER, application);
-        this._dvdRepository = application.getServices().getIDvdRepository();
-        this._bookRepository = application.getServices().getIBookRepository();
+    public RemoveTitlePage(Application app) {
+        super(PAGE_HEADER, app);
+        this._dvdRepository = app.getServices().getIDvdRepository();
+        this._bookRepository = app.getServices().getIBookRepository();
     }
 
     @Override

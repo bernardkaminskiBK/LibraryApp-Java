@@ -4,21 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72ab1684-ba77-446c-8c88-d77f075200dc" name="Changes" comment="finished lecture 17">
+    <list default="true" id="72ab1684-ba77-446c-8c88-d77f075200dc" name="Changes" comment="finished lecture 18">
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Members/AddMemberPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Members/AllMembersPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Members/RemoveMemberPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IMemberRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/core/entities/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/MemberRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/UIElements/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/helpers/InputHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/helpers/InputHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/helpers/OutputHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/helpers/OutputHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Messages/MessagesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Messages/MessagesPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Members/MembersPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Members/MembersPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AddTitlePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AddTitlePage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AllTitlesPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AllTitlesPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/RemoveTitlePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/RemoveTitlePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/repositories/IRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/base/EntityBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/base/EntityBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/DvdRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/DvdRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/infrastructure/ServiceProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infrastructure/ServiceProvider.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,16 +28,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Lekcia_17" />
+        <entry key="$PROJECT_DIR$" value="Lekcia_18" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -114,6 +114,7 @@
       <workItem from="1666712059935" duration="916000" />
       <workItem from="1666876068394" duration="21466000" />
       <workItem from="1666959246321" duration="14145000" />
+      <workItem from="1667033749391" duration="5279000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1666886884379</created>
@@ -143,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666988355632</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="finished lecture 18">
+      <created>1666993087239</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666993087239</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,6 +173,7 @@
     <MESSAGE value="save point, resolved trouble with stack and hash" />
     <MESSAGE value="finished lektion 15" />
     <MESSAGE value="finished lecture 17" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished lecture 17" />
+    <MESSAGE value="finished lecture 18" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished lecture 18" />
   </component>
 </project>

@@ -3,7 +3,10 @@ package UI;
 import UI.base.PageBase;
 import UI.helpers.OutputHelper;
 import UI.pages.MainPage;
+import UI.pages.Members.AddMemberPage;
+import UI.pages.Members.AllMembersPage;
 import UI.pages.Members.MembersPage;
+import UI.pages.Members.RemoveMemberPage;
 import UI.pages.Messages.MessagesPage;
 import UI.pages.Rentals.RentalsPage;
 import UI.pages.Titles.AddTitlePage;
@@ -137,6 +140,9 @@ public class Application {
 
         // Members
         this.addPage(new MembersPage(this));
+        this.addPage(new AllMembersPage(this));
+        this.addPage(new AddMemberPage(this));
+        this.addPage(new RemoveMemberPage(this));
 
         // Rentals
         this.addPage(new RentalsPage(this));
@@ -177,7 +183,7 @@ public class Application {
         return services;
     }
 
-    public final void Exit() {
+    public final void exit() {
         System.exit(0);
     }
 

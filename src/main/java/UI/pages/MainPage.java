@@ -21,7 +21,7 @@ public class MainPage extends MenuPageBase {
         this.getMenu().add(2, "Members", () -> this.getApplication().navigateTo(MembersPage.class));
         this.getMenu().add(3, "Rentals", () -> this.getApplication().navigateTo(RentalsPage.class));
         this.getMenu().add(4, "Messages", () -> this.getApplication().navigateTo(MessagesPage.class));
-        this.getMenu().add(5, "Exit", () -> this.getApplication().Exit());
+        this.getMenu().add(5, "Exit", () -> this.getApplication().exit());
     }
 
     @Override

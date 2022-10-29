@@ -17,10 +17,10 @@ public class AddTitlePage extends MenuPageBase {
     private final IDvdRepository _dvdRepository;
     private final IBookRepository _bookRepository;
 
-    public AddTitlePage(Application application) {
-        super(PAGE_HEADER, application);
-        this._dvdRepository = application.getServices().getIDvdRepository();
-        this._bookRepository = application.getServices().getIBookRepository();
+    public AddTitlePage(Application app) {
+        super(PAGE_HEADER, app);
+        this._dvdRepository = app.getServices().getIDvdRepository();
+        this._bookRepository = app.getServices().getIBookRepository();
 
         initializeOptions();
     }

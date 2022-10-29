@@ -12,7 +12,10 @@ public class MembersPage extends MenuPageBase {
     }
 
     private void initializeOptions() {
-        this.getMenu().add(1, "Back", () -> this.getApplication().navigateBack());
+        this.getMenu().add(1, "Show all members", () -> this.getApplication().navigateTo(AllMembersPage.class));
+        this.getMenu().add(2, "Add new member", () -> this.getApplication().navigateTo(AddMemberPage.class));
+        this.getMenu().add(3, "Remove member", () -> this.getApplication().navigateTo(RemoveMemberPage.class));
+        this.getMenu().add(4, "Back", () -> this.getApplication().navigateBack());
     }
 
     @Override
