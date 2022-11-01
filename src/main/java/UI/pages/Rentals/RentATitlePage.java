@@ -101,7 +101,6 @@ public class RentATitlePage extends MenuPageBase {
 
 
         if (!_rentalEntryService.canRent(member, title)) {
-            OutputHelper.writeLine("Error");
             return;
         }
 
@@ -138,9 +137,8 @@ public class RentATitlePage extends MenuPageBase {
         menu.display();
     }
 
-    private boolean addToQueue(Title title, Member member) {
-        var result = this._queueService.addToQueue(title, member);
-        return result != null;
+    private void addToQueue(Title title, Member member) {
+        this._queueService.addToQueue(title, member);
     }
 
 }

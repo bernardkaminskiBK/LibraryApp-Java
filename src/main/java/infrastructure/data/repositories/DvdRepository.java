@@ -13,7 +13,7 @@ public class DvdRepository implements IDvdRepository {
 
     @Override
     public ArrayList<Dvd> getAll() {
-        String selectStmt = "SELECT * FROM librarydb.dvd";
+        String selectStmt = "SELECT * FROM librarydb.title WHERE Discriminator = 'dvd';";
 
         try {
             ResultSet rsDvds = DatabaseContext.dbExecuteQuery(selectStmt);
@@ -39,28 +39,6 @@ public class DvdRepository implements IDvdRepository {
 
     @Override
     public Dvd create(Dvd entity) {
-        String insertDvdStmt = "" +
-                "INSERT INTO librarydb.dvd " +
-                "(Author, Name, AvailableCopies, NumberOfChapters, NumberOfMinutes) " +
-                "VALUES (" +
-                "'" + entity.getAuthor() + "'" + ", " +
-                "'" + entity.getName() + "'" + ", " +
-                entity.getAvailableCopies() + ", " +
-                entity.getNumberOfChapters() + ", " +
-                entity.getNumberOfMinutes() + ")";
-
-        try {
-            DatabaseContext.dbExecuteUpdate(insertDvdStmt);
-            addDvdIntoTitleTable(entity);
-            return entity;
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    private void addDvdIntoTitleTable(Dvd entity) {
         String insertStmt = "INSERT INTO \n" +
                 "`librarydb`.`title` (`Name`, `Author`, `AvailableCopies`, `Discriminator`, `NumberOfPages`, `ISBN`, `NumberOfChapters`, `NumberOfMinutes`, `TotalAvailableCopies`) \n" +
                 "VALUES " +
@@ -77,14 +55,17 @@ public class DvdRepository implements IDvdRepository {
 
         try {
             DatabaseContext.dbExecuteUpdate(insertStmt);
+            return entity;
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        return null;
     }
 
     @Override
     public Dvd delete(int id) {
-        String deleteStmt = "DELETE FROM librarydb.dvd WHERE id = " + id;
+        String deleteStmt = "DELETE FROM librarydb.title WHERE id = " + id + " AND Discriminator = 'dvd';";
 
         var entityDvd = this.getById(id);
         if (entityDvd == null) {
@@ -103,7 +84,7 @@ public class DvdRepository implements IDvdRepository {
 
     @Override
     public Dvd getById(int id) {
-        String selectStmt = "SELECT * FROM librarydb.dvd WHERE Id = " + id;
+        String selectStmt = "SELECT * FROM librarydb.title WHERE Id = " + id + " AND Discriminator = 'dvd';";
 
         try {
             ResultSet rsEmp = DatabaseContext.dbExecuteQuery(selectStmt);
@@ -118,9 +99,9 @@ public class DvdRepository implements IDvdRepository {
     @Override
     public void update(int id, Dvd entity) {
         String updateStmt =
-                "UPDATE librarydb.dvd" +
+                "UPDATE librarydb.title" +
                         " SET AvailableCopies = " + entity.getAvailableCopies() +
-                        " WHERE Id = " + id + ";";
+                        " WHERE Id = " + id + " AND Discriminator = 'dvd';";
 
         try {
             DatabaseContext.dbExecuteUpdate(updateStmt);
@@ -151,4 +132,5 @@ public class DvdRepository implements IDvdRepository {
     public boolean isDvdAvailable(int id) {
         return getById(id).getAvailableCopies() > 0;
     }
+
 }

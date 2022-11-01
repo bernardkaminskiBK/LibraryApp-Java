@@ -8,7 +8,7 @@ import core.entities.Title;
 import java.util.ArrayList;
 
 public interface IQueueService {
-    QueueItem addToQueue(Title title, Member member);
+    void addToQueue(Title title, Member member);
 
     void markAsResolved(QueueItem item);
 

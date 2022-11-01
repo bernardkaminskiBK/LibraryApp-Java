@@ -12,7 +12,6 @@ import core.entities.*;
 import core.enums.eTitleCountUpdate;
 import core.enums.eTitleType;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -156,6 +155,7 @@ public class RentalEntryService implements IRentalEntryService {
         for (var rentedTitle : rentedTitles) {
             if (rentedTitle.getTitleId() == title.getId()) {
                 OutputHelper.writeLine("Title " + title.getName() + " is already rented.");
+                return false;
             }
         }
 

@@ -13,7 +13,7 @@ public class BookRepository implements IBookRepository {
 
     @Override
     public ArrayList<Book> getAll() {
-        String selectStmt = "SELECT * FROM librarydb.book";
+        String selectStmt = "SELECT * FROM librarydb.title WHERE Discriminator = 'book';";
 
         try {
             ResultSet rsDvds = DatabaseContext.dbExecuteQuery(selectStmt);
@@ -39,28 +39,6 @@ public class BookRepository implements IBookRepository {
 
     @Override
     public Book create(Book entity) {
-        String insertStmt =
-                "INSERT INTO librarydb.book " +
-                        "(Author, Name, AvailableCopies, NumberOfPages, ISBN) " +
-                        "VALUES (" +
-                        "'" + entity.getAuthor() + "'" + ", " +
-                        "'" + entity.getName() + "'" + ", " +
-                        entity.getAvailableCopies() + ", " +
-                        entity.getNumberOfPages() + ", " +
-                        "'" + entity.getISBN() + "'" + ")";
-
-        try {
-            DatabaseContext.dbExecuteUpdate(insertStmt);
-            addBookIntoTitleTable(entity);
-            return entity;
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    private void addBookIntoTitleTable(Book entity) {
         String insertStmt = "INSERT INTO \n" +
                 "`librarydb`.`title` (`Name`, `Author`, `AvailableCopies`, `Discriminator`, `NumberOfPages`, `ISBN`, `NumberOfChapters`, `NumberOfMinutes`, `TotalAvailableCopies`) \n" +
                 "VALUES " +
@@ -77,14 +55,17 @@ public class BookRepository implements IBookRepository {
 
         try {
             DatabaseContext.dbExecuteUpdate(insertStmt);
+            return entity;
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+
+        return null;
     }
 
     @Override
     public Book delete(int id) {
-        String deleteStmt = "DELETE FROM librarydb.book WHERE id = " + id;
+        String deleteStmt = "DELETE FROM librarydb.title WHERE id = " + id + " AND Discriminator = 'book';";
 
         var entity = this.getById(id);
         if (entity == null) {
@@ -103,7 +84,7 @@ public class BookRepository implements IBookRepository {
 
     @Override
     public Book getById(int id) {
-        String selectStmt = "SELECT * FROM librarydb.book WHERE Id = " + id;
+        String selectStmt = "SELECT * FROM librarydb.title WHERE Id = " + id + " AND Discriminator = 'book';";
 
         try {
             ResultSet resultSet = DatabaseContext.dbExecuteQuery(selectStmt);
@@ -118,9 +99,9 @@ public class BookRepository implements IBookRepository {
     @Override
     public void update(int id, Book entity) {
         String updateStmt =
-                "UPDATE librarydb.book " +
+                "UPDATE librarydb.title " +
                         "SET AvailableCopies = " + entity.getAvailableCopies() +
-                        " WHERE Id = " + id + ";";
+                        " WHERE Id = " + id + " AND Discriminator = 'book';";
 
         try {
             DatabaseContext.dbExecuteUpdate(updateStmt);

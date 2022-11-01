@@ -7,7 +7,7 @@ public class RentalEntry extends EntityBase {
     private Member member;
     private int memberId;
     private String rentedDate;
-    private String returnDate;
+    private String returnDate = null;
     private Title title;
     private int titleId;
     private int timesProlonged;

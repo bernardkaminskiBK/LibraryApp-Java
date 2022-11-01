@@ -16,7 +16,8 @@ public class RentalEntryRepository implements IRentalEntryRepository {
 //        String selectStmt = "SELECT * FROM librarydb.rental_entries";
         String selectStmt = "SELECT * FROM librarydb.rental_entries\n" +
                 "JOIN librarydb.members ON rental_entries.MemberId = members.Id\n" +
-                "JOIN librarydb.title ON rental_entries.TitleId = title.Id;";
+                "JOIN librarydb.title ON rental_entries.TitleId = title.Id " +
+                "WHERE ReturnDate = 'null';";
 
         try {
             ResultSet rsRentalEntries = DatabaseContext.dbExecuteQuery(selectStmt);
@@ -141,7 +142,7 @@ public class RentalEntryRepository implements IRentalEntryRepository {
         String selectStmt = "SELECT * FROM librarydb.rental_entries\n" +
                 "JOIN librarydb.members ON rental_entries.MemberId = members.Id\n" +
                 "JOIN librarydb.title ON rental_entries.TitleId = title.Id\n" +
-                "WHERE ReturnDate is null AND MemberId = " + memberId + ";";
+                "WHERE ReturnDate = 'null' AND MemberId = " + memberId + ";";
 
         try {
             ResultSet rsRentalEntries = DatabaseContext.dbExecuteQuery(selectStmt);
