@@ -32,8 +32,9 @@ public class RentalEntryRepository implements IRentalEntryRepository {
     private ArrayList<RentalEntry> getAllRentalEntries(ResultSet rs) throws SQLException {
         ArrayList<RentalEntry> rentalEntries = new ArrayList<>();
 
+        RentalEntry rentalEntry = null;
         while (rs.next()) {
-            RentalEntry rentalEntry = new RentalEntry();
+            rentalEntry = new RentalEntry();
             rentalEntry.setId(rs.getInt("Id"));
             rentalEntry.setMemberId(rs.getInt("MemberId"));
             rentalEntry.setMember(getMemberFromResultSet(rs));
@@ -54,7 +55,7 @@ public class RentalEntryRepository implements IRentalEntryRepository {
 
     private Member getMemberFromResultSet(ResultSet rs) throws SQLException {
         Member member = new Member();
-        member.setId(rs.getInt("Id"));
+        member.setId(rs.getInt("MemberId"));
         member.setFirstName(rs.getString("FirstName"));
         member.setLastName(rs.getString("LastName"));
         member.setPersonalId(rs.getString("PersonalId"));
@@ -67,11 +68,13 @@ public class RentalEntryRepository implements IRentalEntryRepository {
         switch (titleType) {
             case book:
                 title = new Book();
+                title.setId(rs.getInt("TitleId"));
                 title.setAuthor(rs.getString("Author"));
                 title.setName(rs.getString("Name"));
                 break;
             case dvd:
                 title = new Dvd();
+                title.setId(rs.getInt("TitleId"));
                 title.setAuthor(rs.getString("Author"));
                 title.setName(rs.getString("Name"));
                 break;
@@ -114,7 +117,16 @@ public class RentalEntryRepository implements IRentalEntryRepository {
 
     @Override
     public void update(int id, RentalEntry entity) {
+        String updateStmt =
+                "UPDATE librarydb.rental_entries " +
+                        "SET ReturnDate = " + "'" + entity.getReturnDate() + "'" +
+                        " WHERE Id = " + id + ";";
 
+        try {
+            DatabaseContext.dbExecuteUpdate(updateStmt);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -152,6 +164,5 @@ public class RentalEntryRepository implements IRentalEntryRepository {
         }
 
         return new ArrayList<>();
-
     }
 }

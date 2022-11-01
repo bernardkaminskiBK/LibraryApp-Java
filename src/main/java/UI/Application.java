@@ -10,6 +10,7 @@ import UI.pages.Members.RemoveMemberPage;
 import UI.pages.Messages.MessagesPage;
 import UI.pages.Rentals.RentATitlePage;
 import UI.pages.Rentals.RentalsPage;
+import UI.pages.Rentals.ReturnTitlePage;
 import UI.pages.Titles.AddTitlePage;
 import UI.pages.Titles.AllTitlesPage;
 import UI.pages.Titles.RemoveTitlePage;
@@ -152,6 +153,7 @@ public class Application {
         // Rentals
         this.addPage(new RentalsPage(this));
         this.addPage(new RentATitlePage(this));
+        this.addPage(new ReturnTitlePage(this));
 
         // Messages
         this.addPage(new MessagesPage(this));

@@ -46,9 +46,6 @@ public class RentalEntryService implements IRentalEntryService {
         this._queueService = queueService;
 
         initializeConstants();
-
-        getRentalEntriesPastDue();
-
     }
 
     private void initializeConstants() {
@@ -98,6 +95,12 @@ public class RentalEntryService implements IRentalEntryService {
 
     @Override
     public RentalEntry returnEntry(RentalEntry entry) {
+
+        updateAvailableTitleCopies(entry.getTitle(), eTitleCountUpdate.add);
+
+        entry.setReturnDate(nowDate);
+        this._rentalEntryRepository.update(entry.getId(), entry);
+
         return null;
     }
 
