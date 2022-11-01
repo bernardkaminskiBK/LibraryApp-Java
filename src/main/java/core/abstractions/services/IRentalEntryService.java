@@ -23,8 +23,8 @@ public interface IRentalEntryService {
     boolean isEntryPastDue(RentalEntry entry);
 
     boolean canRent(Member member, Title title);
-//
-//    boolean canProlongRental(RentalEntry entry, tangible.OutObject<String> errorMessage);
+
+    boolean canProlongRental(RentalEntry entry);
 
     boolean prolongRental(RentalEntry entry);
 

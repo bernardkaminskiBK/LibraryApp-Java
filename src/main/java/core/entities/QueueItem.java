@@ -2,15 +2,13 @@ package core.entities;
 
 import core.base.EntityBase;
 
-import java.time.LocalDateTime;
-
 public class QueueItem extends EntityBase {
     private Member member = null;
     private int memberId;
     private Title title = null;
-    private LocalDateTime timeAdded = LocalDateTime.MIN;
+    private String timeAdded;
     private int titleId;
-    private boolean isResolved;
+    private boolean isResolved = false;
 
     public final Member getMember() {
         return member;
@@ -28,11 +26,11 @@ public class QueueItem extends EntityBase {
         memberId = value;
     }
 
-    public final LocalDateTime getTimeAdded() {
+    public final String getTimeAdded() {
         return timeAdded;
     }
 
-    public final void setTimeAdded(LocalDateTime value) {
+    public final void setTimeAdded(String value) {
         timeAdded = value;
     }
 

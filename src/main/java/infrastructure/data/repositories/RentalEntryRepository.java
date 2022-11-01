@@ -120,6 +120,7 @@ public class RentalEntryRepository implements IRentalEntryRepository {
         String updateStmt =
                 "UPDATE librarydb.rental_entries " +
                         "SET ReturnDate = " + "'" + entity.getReturnDate() + "'" +
+                        ", TimesProlonged = " + entity.getTimesProlonged() +
                         " WHERE Id = " + id + ";";
 
         try {

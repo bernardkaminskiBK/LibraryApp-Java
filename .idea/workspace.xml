@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72ab1684-ba77-446c-8c88-d77f075200dc" name="Changes" comment="finished lecture 22">
+    <list default="true" id="72ab1684-ba77-446c-8c88-d77f075200dc" name="Changes" comment="finished lecture 23">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/UI/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Rentals/ReturnTitlePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Rentals/ReturnTitlePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Rentals/ProlongRentalPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Rentals/ProlongRentalPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/abstractions/services/IRentalEntryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/services/IRentalEntryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/entities/QueueItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/entities/QueueItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/core/service/QueueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/service/QueueService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/core/service/RentalEntryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/service/RentalEntryService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/RentalEntryRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/RentalEntryRepository.java" afterDir="false" />
     </list>
@@ -28,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Lekcia_22" />
+        <entry key="$PROJECT_DIR$" value="Lekcia_23" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -108,7 +111,7 @@
       <workItem from="1667033749391" duration="23270000" />
       <workItem from="1667145985403" duration="19304000" />
       <workItem from="1667205024531" duration="28565000" />
-      <workItem from="1667293755644" duration="16733000" />
+      <workItem from="1667293755644" duration="21403000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1666886884379</created>
@@ -180,7 +183,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667301092142</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="finished lecture 23">
+      <created>1667325844061</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1667325844061</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +218,7 @@
     <MESSAGE value="finished lecture 21" />
     <MESSAGE value="lecture 22 app using book and dvd tables" />
     <MESSAGE value="finished lecture 22" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished lecture 22" />
+    <MESSAGE value="finished lecture 23" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished lecture 23" />
   </component>
 </project>

@@ -169,15 +169,30 @@ public class RentalEntryService implements IRentalEntryService {
 
         return true;
     }
-//
-//    @Override
-//    public boolean canProlongRental(RentalEntry entry, tangible.OutObject<String> errorMessage) {
-//        return false;
-//    }
+
+    @Override
+    public boolean canProlongRental(RentalEntry entry) {
+        var queueItem = _queueService.getItems(entry.getTitleId(), true);
+
+        if (queueItem.size() > 0) {
+            OutputHelper.writeLine("Item cannot be prolongued - another member is waiting for it");
+            return false;
+        }
+
+        if (entry.getTimesProlonged() >= 2) {
+            OutputHelper.writeLine("Item already prolongued 2 times, which is maximum possible!");
+            return false;
+        }
+
+        return true;
+
+    }
 
     @Override
     public boolean prolongRental(RentalEntry entry) {
-        return false;
+        entry.setTimesProlonged(entry.getTimesProlonged() + 1);
+        this._rentalEntryRepository.update(entry.getId(), entry);
+        return true;
     }
 
 }
