@@ -16,7 +16,7 @@ public class AllMembersPage extends MenuPageBase {
 
     public AllMembersPage(Application app) {
         super(PAGE_HEADER, app);
-        this._memberRepository = app.getServices().getIMemberRepository();
+        this._memberRepository = app.getInfraServices().getIMemberRepository();
     }
 
     @Override

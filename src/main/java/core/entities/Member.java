@@ -2,15 +2,12 @@ package core.entities;
 
 import core.base.EntityBase;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Member extends EntityBase {
 
-    public String firstName;
-    public String lastName;
-    public String personalId;
-    public String dateOfBirth;
+    private String firstName;
+    private String lastName;
+    private String personalId;
+    private String dateOfBirth;
 
     public Member(String firstName, String lastName, String personalId, String dateOfBirth) {
         this.firstName = firstName;

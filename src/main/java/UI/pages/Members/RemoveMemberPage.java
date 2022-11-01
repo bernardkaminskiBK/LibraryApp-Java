@@ -16,7 +16,7 @@ public class RemoveMemberPage extends MenuPageBase {
 
     public RemoveMemberPage(Application app) {
         super(PAGE_HEADER, app);
-        this._memberRepository = app.getServices().getIMemberRepository();
+        this._memberRepository = app.getInfraServices().getIMemberRepository();
 
         initializeOptions();
     }
@@ -61,5 +61,3 @@ public class RemoveMemberPage extends MenuPageBase {
     }
 
 }
-
-

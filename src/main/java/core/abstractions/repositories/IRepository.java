@@ -13,4 +13,5 @@ public interface IRepository<T> {
 
     T getById(int id);
 
+    void update(int id, T entity);
 }

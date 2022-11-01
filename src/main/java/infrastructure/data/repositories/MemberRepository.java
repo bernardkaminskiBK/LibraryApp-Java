@@ -85,6 +85,11 @@ public class MemberRepository implements IMemberRepository {
         return null;
     }
 
+    @Override
+    public void update(int id, Member entity) {
+
+    }
+
     private Member getMemberFromResultSet(ResultSet rs) throws SQLException {
         Member member = null;
         if (rs.next()) {

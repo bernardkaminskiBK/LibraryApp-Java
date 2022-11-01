@@ -2,6 +2,7 @@ package infrastructure.data.repositories;
 
 import core.abstractions.repositories.IBookRepository;
 import core.entities.Book;
+import core.enums.eTitleType;
 import infrastructure.data.DatabaseContext;
 
 import java.sql.ResultSet;
@@ -38,18 +39,47 @@ public class BookRepository implements IBookRepository {
 
     @Override
     public Book create(Book entity) {
-        String insertStmt = "" +
+        String insertStmt =
                 "INSERT INTO librarydb.book " +
-                "(Author, Name, AvailableCopies, NumberOfPages, ISBN) " +
-                "VALUES (" + "'" + entity.getAuthor() + "'" + ", " + "'" + entity.getName() + "'" + ", " + entity.getAvailableCopies() + ", " + entity.getNumberOfPages() + ", " + "'" + entity.getISBN() + "'" + ")";
+                        "(Author, Name, AvailableCopies, NumberOfPages, ISBN) " +
+                        "VALUES (" +
+                        "'" + entity.getAuthor() + "'" + ", " +
+                        "'" + entity.getName() + "'" + ", " +
+                        entity.getAvailableCopies() + ", " +
+                        entity.getNumberOfPages() + ", " +
+                        "'" + entity.getISBN() + "'" + ")";
+
         try {
             DatabaseContext.dbExecuteUpdate(insertStmt);
+            addBookIntoTitleTable(entity);
             return entity;
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
 
         return null;
+    }
+
+    private void addBookIntoTitleTable(Book entity) {
+        String insertStmt = "INSERT INTO \n" +
+                "`librarydb`.`title` (`Name`, `Author`, `AvailableCopies`, `Discriminator`, `NumberOfPages`, `ISBN`, `NumberOfChapters`, `NumberOfMinutes`, `TotalAvailableCopies`) \n" +
+                "VALUES " +
+                "(" +
+                "'" + entity.getName() + "', " +
+                "'" + entity.getAuthor() + "', " +
+                entity.getAvailableCopies() + ", " +
+                "'" + eTitleType.book + "', " +
+                entity.getNumberOfPages() + ", " +
+                entity.getISBN() + ", " +
+                null + ", " +
+                null + ", " +
+                entity.getAvailableCopies() + ");";
+
+        try {
+            DatabaseContext.dbExecuteUpdate(insertStmt);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -85,6 +115,20 @@ public class BookRepository implements IBookRepository {
         return null;
     }
 
+    @Override
+    public void update(int id, Book entity) {
+        String updateStmt =
+                "UPDATE librarydb.book " +
+                        "SET AvailableCopies = " + entity.getAvailableCopies() +
+                        " WHERE Id = " + id + ";";
+
+        try {
+            DatabaseContext.dbExecuteUpdate(updateStmt);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     private Book getBookFromResultSet(ResultSet rsBook) throws SQLException {
         Book book = null;
         if (rsBook.next()) {
@@ -101,6 +145,11 @@ public class BookRepository implements IBookRepository {
         book.setAvailableCopies(rsBook.getInt("AvailableCopies"));
         book.setNumberOfPages(rsBook.getInt("NumberOfPages"));
         book.setISBN(rsBook.getString("ISBN"));
+    }
+
+    @Override
+    public boolean isBookAvailable(int id) {
+        return getById(id).getAvailableCopies() > 0;
     }
 
 }

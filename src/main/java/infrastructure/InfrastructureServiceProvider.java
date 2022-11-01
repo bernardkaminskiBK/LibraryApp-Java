@@ -9,16 +9,15 @@ import infrastructure.data.repositories.BookRepository;
 import infrastructure.data.repositories.DvdRepository;
 import infrastructure.data.repositories.MemberRepository;
 
-public class ServiceProvider {
+public class InfrastructureServiceProvider {
 
     private IDvdRepository iDvdRepository;
     private IBookRepository iBookRepository;
-
     private IMemberRepository iMemberRepository;
 
     private final Injector injector;
 
-    public ServiceProvider() {
+    public InfrastructureServiceProvider() {
         injector = Guice.createInjector(new InfrastructureModule());
         injectDvdRepositoryClass();
         injectBookRepositoryClass();

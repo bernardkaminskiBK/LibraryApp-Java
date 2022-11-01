@@ -20,8 +20,8 @@ public class AllTitlesPage extends PageBase {
 
     public AllTitlesPage(Application app) {
         super(PAGE_HEADER, app);
-        this._dvdRepository = app.getServices().getIDvdRepository();
-        this._bookRepository = app.getServices().getIBookRepository();
+        this._dvdRepository = app.getInfraServices().getIDvdRepository();
+        this._bookRepository = app.getInfraServices().getIBookRepository();
     }
 
     @Override

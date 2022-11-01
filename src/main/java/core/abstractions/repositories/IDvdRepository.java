@@ -4,4 +4,6 @@ import core.entities.Dvd;
 
 public interface IDvdRepository extends IRepository<Dvd> {
 
+    boolean isDvdAvailable(int id);
+
 }

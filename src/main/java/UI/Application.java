@@ -15,7 +15,8 @@ import UI.pages.Titles.AllTitlesPage;
 import UI.pages.Titles.RemoveTitlePage;
 import UI.pages.Titles.TitlesPage;
 
-import infrastructure.ServiceProvider;
+import core.CoreServiceProvider;
+import infrastructure.InfrastructureServiceProvider;
 import utils.custom_exceptions.KeyNotFoundException;
 
 import java.util.HashMap;
@@ -28,7 +29,9 @@ public class Application {
     private String Title;
     private HashMap<Class, PageBase> Pages;
     private Stack<PageBase> history;
-    private ServiceProvider services;
+    private InfrastructureServiceProvider infraServices;
+
+    private CoreServiceProvider coreServices;
 
     public Application(String title) {
         this.setTitle(title);
@@ -127,7 +130,8 @@ public class Application {
     }
 
     private void buildServices() {
-        this.services = new ServiceProvider();
+        this.infraServices = new InfrastructureServiceProvider();
+        this.coreServices = new CoreServiceProvider();
     }
 
     private void buildPages() {
@@ -181,8 +185,12 @@ public class Application {
         return !getHistory().empty() ? getHistory().peek() : null;
     }
 
-    public ServiceProvider getServices() {
-        return services;
+    public InfrastructureServiceProvider getInfraServices() {
+        return infraServices;
+    }
+
+    public CoreServiceProvider getCoreServices() {
+        return coreServices;
     }
 
     public final void exit() {

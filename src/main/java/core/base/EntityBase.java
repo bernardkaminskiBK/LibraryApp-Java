@@ -3,13 +3,13 @@ package core.base;
 
 public class EntityBase {
 
-    private Integer id = 0;
+    private int id = 0;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 

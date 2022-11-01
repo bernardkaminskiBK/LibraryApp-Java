@@ -9,6 +9,9 @@ import UI.helpers.OutputHelper;
 import core.abstractions.repositories.IBookRepository;
 import core.abstractions.repositories.IDvdRepository;
 import core.abstractions.repositories.IMemberRepository;
+import core.abstractions.services.IQueueService;
+import core.abstractions.services.IRentalEntryService;
+import core.entities.Book;
 import core.entities.Member;
 import core.entities.Title;
 
@@ -17,6 +20,10 @@ import java.util.ArrayList;
 public class RentATitlePage extends MenuPageBase {
 
     private static final String PAGE_HEADER = "Rent a title";
+
+    private final IRentalEntryService _rentalEntryService;
+    private final IQueueService _queueService;
+
     private final IMemberRepository _memberRepository;
     private final IDvdRepository _dvdRepository;
     private final IBookRepository _bookRepository;
@@ -30,9 +37,11 @@ public class RentATitlePage extends MenuPageBase {
     public RentATitlePage(Application app) {
         super(PAGE_HEADER, app);
 
-        this._memberRepository = app.getServices().getIMemberRepository();
-        this._dvdRepository = app.getServices().getIDvdRepository();
-        this._bookRepository = app.getServices().getIBookRepository();
+        this._rentalEntryService = app.getCoreServices().getIRentalEntryService();
+        this._queueService = app.getCoreServices().getIQueueService();
+        this._memberRepository = app.getInfraServices().getIMemberRepository();
+        this._dvdRepository = app.getInfraServices().getIDvdRepository();
+        this._bookRepository = app.getInfraServices().getIBookRepository();
 
         initializeMenu();
     }
@@ -46,7 +55,7 @@ public class RentATitlePage extends MenuPageBase {
             _chooseMemberMenu.add(index + 1, member.toString(), () -> this._choosenMember = member);
         }
 
-        var titles = GetAllTitles();
+        var titles = getAllTitles();
 
         for (int index = 0; index < titles.size(); index++) {
             var title = titles.get(index);
@@ -66,6 +75,8 @@ public class RentATitlePage extends MenuPageBase {
         OutputHelper.writeLine("Choose a title to rent to: ");
         this._chooseTitleMenu.display();
 
+        this.rentATitle();
+
         InputHelper.readKey("Press any key to continue....");
         this.getApplication().navigateBack();
     }
@@ -75,13 +86,61 @@ public class RentATitlePage extends MenuPageBase {
         return _memberRepository.getAll();
     }
 
-    private ArrayList<Title> GetAllTitles() {
+    private ArrayList<Title> getAllTitles() {
         var list = new ArrayList<Title>();
 
         list.addAll(this._dvdRepository.getAll());
         list.addAll(this._bookRepository.getAll());
 
         return list;
+    }
+
+    private void rentATitle() {
+        var title = this._choosenTitle;
+        var member = this._choosenMember;
+
+
+        if (!_rentalEntryService.canRent(member, title)) {
+            OutputHelper.writeLine("Error");
+            return;
+        }
+
+        //check title availibility
+        if (!isTitleAvailable(title)) {
+            showQueuePrompt(title, member);
+
+            this.getApplication().navigateBack();
+        }
+
+        var result = _rentalEntryService.rent(title, member);
+
+        if (result == null) {
+            OutputHelper.writeLine("Title not rented ");
+        } else {
+            OutputHelper.writeLine("Title rented successfully. ");
+        }
+    }
+
+    private boolean isTitleAvailable(Title title) {
+        var isBook = title instanceof Book;
+        return isBook ? this._bookRepository.isBookAvailable(title.getId()) : this._dvdRepository.isDvdAvailable(title.getId());
+    }
+
+    private void showQueuePrompt(Title title, Member member) {
+        var menu = new Menu();
+
+        menu.add(1, "Yes", () -> addToQueue(title, member));
+        menu.add(2, "No", () -> {
+            return;
+        });
+
+        OutputHelper.writeLine("Do you want to add your inquiry to the queue?");
+        menu.display();
+    }
+
+    private boolean addToQueue(Title title, Member member) {
+        var result = this._queueService.addToQueue(title, member);
+        return result != null;
     }
 
 }
