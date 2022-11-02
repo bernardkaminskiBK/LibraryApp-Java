@@ -8,7 +8,6 @@ import core.abstractions.services.IRentalEntryService;
 
 public class PastDueRentalsPage extends PageBase {
     private static final String PAGE_HEADER = "Past due rentals";
-
     private final IRentalEntryService _rentalService;
 
     public PastDueRentalsPage(Application app) {
@@ -20,13 +19,13 @@ public class PastDueRentalsPage extends PageBase {
     public void display() {
         super.display();
 
-        DisplayPastDueRentals();
+        displayPastDueRentals();
 
         InputHelper.readKey("Press enter to return to Rental page...");
         this.getApplication().navigateBack();
     }
 
-    public final void DisplayPastDueRentals() {
+    public final void displayPastDueRentals() {
         var entries = _rentalService.getRentalEntriesPastDue();
 
         for (var entry : entries) {

@@ -23,15 +23,14 @@ public class AllRentalsPage extends MenuPageBase {
     public void display() {
         super.display();
 
-        DisplayAllRentalEntries();
+        displayAllRentalEntries();
 
         InputHelper.readKey("Press enter to return to Rentals page...");
-
         this.getApplication().navigateBack();
     }
 
-    private void DisplayAllRentalEntries() {
-        var entries = GetAllRentalEntries();
+    private void displayAllRentalEntries() {
+        var entries = getAllRentalEntries();
         var sb = new StringBuilder();
 
         for (var entry : entries) {
@@ -41,7 +40,7 @@ public class AllRentalsPage extends MenuPageBase {
         OutputHelper.writeLine(sb.toString());
     }
 
-    private ArrayList<RentalEntry> GetAllRentalEntries() {
+    private ArrayList<RentalEntry> getAllRentalEntries() {
         return _rentalEntryService.getAllEntries();
     }
 }

@@ -154,6 +154,7 @@ public class Application {
         this.addPage(new ProlongRentalPage(this));
         this.addPage(new AllRentalsPage(this));
         this.addPage(new PastDueRentalsPage(this));
+        this.addPage(new QueuePage(this));
 
         // Messages
         this.addPage(new MessagesPage(this));

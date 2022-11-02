@@ -27,7 +27,7 @@ public class ProlongRentalPage extends MenuPageBase {
 
     @Override
     public void display() {
-        InitializeUserMenu();
+        initializeUserMenu();
 
         this.getMenu().display();
 
@@ -38,21 +38,20 @@ public class ProlongRentalPage extends MenuPageBase {
 
         InputHelper.readKey("Press any key to return to rentals menu...");
         this.getApplication().navigateBack();
-
     }
 
 
-    private void InitializeUserMenu() {
+    private void initializeUserMenu() {
         var members = _memberRepository.getAll();
         this.setMenu(new Menu());
 
         for (int i = 0; i < members.size(); i++) {
             var member = members.get(i);
-            this.getMenu().add(i + 1, String.format("%1$s", member.toString()), () -> InitializeItemsMenu(member));
+            this.getMenu().add(i + 1, String.format("%1$s", member.toString()), () -> initializeItemsMenu(member));
         }
     }
 
-    private void InitializeItemsMenu(Member member) {
+    private void initializeItemsMenu(Member member) {
         var items = _rentalService.getByUnreturnedMember(member.getId());
 
         if (items.size() == 0) {
@@ -63,11 +62,11 @@ public class ProlongRentalPage extends MenuPageBase {
         for (int i = 0; i < items.size(); i++) {
             var item = items.get(i);
             _chooseRentalItemMenu = new Menu();
-            _chooseRentalItemMenu.add(i + 1, String.format("%1$s", item.toString()), () -> ProlongRental(item));
+            _chooseRentalItemMenu.add(i + 1, String.format("%1$s", item.toString()), () -> prolongRental(item));
         }
     }
 
-    private void ProlongRental(RentalEntry entry) {
+    private void prolongRental(RentalEntry entry) {
         if (!_rentalService.canProlongRental(entry)) {
             return;
         }

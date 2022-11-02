@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class RentalEntryRepository implements IRentalEntryRepository {
+public class RentalEntryRepository extends RowMapper implements IRentalEntryRepository {
 
     @Override
     public ArrayList<RentalEntry> getAll() {
@@ -51,35 +51,6 @@ public class RentalEntryRepository implements IRentalEntryRepository {
             rentalEntries.add(rentalEntry);
         }
         return rentalEntries;
-    }
-
-    private Member getMemberFromResultSet(ResultSet rs) throws SQLException {
-        Member member = new Member();
-        member.setId(rs.getInt("MemberId"));
-        member.setFirstName(rs.getString("FirstName"));
-        member.setLastName(rs.getString("LastName"));
-        member.setPersonalId(rs.getString("PersonalId"));
-        member.setDateOfBirth(rs.getString("DateOfBirth"));
-        return member;
-    }
-
-    private Title getTitleFromResultSet(ResultSet rs, eTitleType titleType) throws SQLException {
-        Title title = null;
-        switch (titleType) {
-            case book:
-                title = new Book();
-                title.setId(rs.getInt("TitleId"));
-                title.setAuthor(rs.getString("Author"));
-                title.setName(rs.getString("Name"));
-                break;
-            case dvd:
-                title = new Dvd();
-                title.setId(rs.getInt("TitleId"));
-                title.setAuthor(rs.getString("Author"));
-                title.setName(rs.getString("Name"));
-                break;
-        }
-        return title;
     }
 
     @Override

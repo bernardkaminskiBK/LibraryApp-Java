@@ -1,6 +1,7 @@
 package core.entities;
 
 import core.base.EntityBase;
+import core.enums.eTitleType;
 
 public class QueueItem extends EntityBase {
     private Member member = null;
@@ -9,6 +10,7 @@ public class QueueItem extends EntityBase {
     private String timeAdded;
     private int titleId;
     private boolean isResolved = false;
+    private eTitleType discriminator;
 
     public final Member getMember() {
         return member;
@@ -56,6 +58,14 @@ public class QueueItem extends EntityBase {
 
     public final void setResolved(boolean value) {
         isResolved = value;
+    }
+
+    public eTitleType getDiscriminator() {
+        return discriminator;
+    }
+
+    public void setDiscriminator(eTitleType discriminator) {
+        this.discriminator = discriminator;
     }
 
     @Override

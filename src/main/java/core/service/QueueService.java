@@ -1,24 +1,24 @@
 package core.service;
 
 import core.abstractions.services.IQueueService;
-import core.entities.Member;
-import core.entities.QueueItem;
-import core.entities.Title;
+import core.entities.*;
+import core.enums.eTitleType;
 import infrastructure.data.DatabaseContext;
+import infrastructure.data.repositories.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class QueueService implements IQueueService {
+public class QueueService extends RowMapper implements IQueueService {
 
     @Override
     public void addToQueue(Title title, Member member) {
         String insertStmt = "INSERT INTO \n" +
                 "`librarydb`.`queue_items` (`MemberId`, `TimeAdded`, `TitleId`, `isResolved`) \n" +
-                "VALUES " +
-                "(" +
+                "VALUES (" +
                 member.getId() + ", " +
                 "'" + LocalDate.now() + "', " +
                 title.getId() + ", " +
@@ -38,7 +38,40 @@ public class QueueService implements IQueueService {
 
     @Override
     public ArrayList<QueueItem> getAllItems() {
+        String selectStmt = "SELECT * FROM librarydb.queue_items\n" +
+                "JOIN librarydb.members ON librarydb.queue_items.MemberId = members.Id\n" +
+                "JOIN librarydb.title ON librarydb.queue_items.TitleId = title.Id;";
+
+        try {
+            ResultSet rsRentalEntries = DatabaseContext.dbExecuteQuery(selectStmt);
+            return getAllQueueItems(rsRentalEntries);
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         return new ArrayList<>();
+    }
+
+    private ArrayList<QueueItem> getAllQueueItems(ResultSet rs) throws SQLException {
+        ArrayList<QueueItem> queueItems = new ArrayList<>();
+
+        QueueItem queueItem = null;
+        while (rs.next()) {
+            queueItem = new QueueItem();
+            queueItem.setId(rs.getInt("Id"));
+            queueItem.setMemberId(rs.getInt("MemberId"));
+
+            eTitleType titleType = Objects.equals(rs.getString("Discriminator"), "book") ? eTitleType.book : eTitleType.dvd;
+            queueItem.setDiscriminator(titleType);
+
+            queueItem.setTitle(getTitleFromResultSet(rs, titleType));
+            queueItem.setMember(getMemberFromResultSet(rs));
+            queueItem.setResolved(rs.getBoolean("isResolved"));
+
+            queueItems.add(queueItem);
+        }
+
+        return queueItems;
     }
 
 //    @Override
