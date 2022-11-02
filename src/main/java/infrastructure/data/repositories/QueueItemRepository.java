@@ -28,17 +28,4 @@ public class QueueItemRepository implements IQueueItemRepository {
 
     }
 
-//    public final java.lang.Iterable<QueueItem> find(Expression<tangible.Func1Param<QueueItem, Boolean>> expression) {
-//        return this._context.QueueItems.Where(expression).Include(i -> i.Title).Include(i -> i.Member);
-//    }
-
 }
-
-//Helper class added by C# to Java Converter:
-//
-//package tangible;
-//
-//@FunctionalInterface
-//public interface Func1Param<T, TResult> {
-//    TResult invoke(T t);
-//}

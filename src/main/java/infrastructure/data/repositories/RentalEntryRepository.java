@@ -137,7 +137,7 @@ public class RentalEntryRepository implements IRentalEntryRepository {
         String selectStmt = "SELECT * FROM librarydb.rental_entries\n" +
                 "JOIN librarydb.members ON rental_entries.MemberId = members.Id\n" +
                 "JOIN librarydb.title ON rental_entries.TitleId = title.Id\n" +
-                "WHERE ReturnDate is null;";
+                "WHERE ReturnDate = 'null';";
 
         try {
             ResultSet rsRentalEntries = DatabaseContext.dbExecuteQuery(selectStmt);

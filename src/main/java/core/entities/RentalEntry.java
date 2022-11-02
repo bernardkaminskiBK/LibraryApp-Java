@@ -3,6 +3,8 @@ package core.entities;
 import core.base.EntityBase;
 import core.enums.eTitleType;
 
+import java.util.Objects;
+
 public class RentalEntry extends EntityBase {
     private Member member;
     private int memberId;
@@ -70,7 +72,7 @@ public class RentalEntry extends EntityBase {
     }
 
     public final boolean isReturned() {
-        return this.getReturnDate() != null;
+        return !Objects.equals(this.getReturnDate(), "null");
     }
 
     public final eTitleType getTitleType() {

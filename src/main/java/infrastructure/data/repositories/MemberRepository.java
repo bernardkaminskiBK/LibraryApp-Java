@@ -40,7 +40,11 @@ public class MemberRepository implements IMemberRepository {
         String insertStmt = "" +
                 "INSERT INTO librarydb.members " +
                 "(FirstName, LastName, PersonalId, DateOfBirth) " +
-                "VALUES (" + "'" + entity.getFirstName() + "'" + ", " + "'" + entity.getLastName() + "'" + ", " + "'" + entity.getPersonalId() + "'" + ", " + "'" + entity.getDateOfBirth() + "'" + ")";
+                "VALUES (" +
+                "'" + entity.getFirstName() + "'" + ", " +
+                "'" + entity.getLastName() + "'" + ", " +
+                "'" + entity.getPersonalId() + "'" + ", " +
+                "'" + entity.getDateOfBirth() + "'" + ")";
 
         try {
             DatabaseContext.dbExecuteUpdate(insertStmt);

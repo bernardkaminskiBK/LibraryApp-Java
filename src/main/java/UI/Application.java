@@ -50,7 +50,6 @@ public class Application {
             }
         } catch (RuntimeException | KeyNotFoundException ex) {
             OutputHelper.writeLine(ex.getMessage());
-
         }
     }
 
@@ -154,6 +153,7 @@ public class Application {
         this.addPage(new ReturnTitlePage(this));
         this.addPage(new ProlongRentalPage(this));
         this.addPage(new AllRentalsPage(this));
+        this.addPage(new PastDueRentalsPage(this));
 
         // Messages
         this.addPage(new MessagesPage(this));
