@@ -8,10 +8,7 @@ import UI.pages.Members.AllMembersPage;
 import UI.pages.Members.MembersPage;
 import UI.pages.Members.RemoveMemberPage;
 import UI.pages.Messages.MessagesPage;
-import UI.pages.Rentals.ProlongRentalPage;
-import UI.pages.Rentals.RentATitlePage;
-import UI.pages.Rentals.RentalsPage;
-import UI.pages.Rentals.ReturnTitlePage;
+import UI.pages.Rentals.*;
 import UI.pages.Titles.AddTitlePage;
 import UI.pages.Titles.AllTitlesPage;
 import UI.pages.Titles.RemoveTitlePage;
@@ -156,6 +153,7 @@ public class Application {
         this.addPage(new RentATitlePage(this));
         this.addPage(new ReturnTitlePage(this));
         this.addPage(new ProlongRentalPage(this));
+        this.addPage(new AllRentalsPage(this));
 
         // Messages
         this.addPage(new MessagesPage(this));

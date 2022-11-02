@@ -21,6 +21,11 @@ import static utils.date_utils.DateUtils.*;
 
 public class RentalEntryService implements IRentalEntryService {
 
+    public static final int MAX_DAYS_TO_RENT_BOOK = 21;
+    public static final int MAX_DAYS_TO_RENT_DVD = 7;
+    public static final double DAILY_PENALTY_FEE_BOOK = 0.1;
+    public static final double DAILY_PENALTY_FEE_DVD = 1.0;
+
     private HashMap<eTitleType, Integer> dayToRent;
     private HashMap<eTitleType, Double> dailyPenaltyFee;
 
@@ -49,8 +54,13 @@ public class RentalEntryService implements IRentalEntryService {
     }
 
     private void initializeConstants() {
-        this.dayToRent = new HashMap<eTitleType, Integer>(Map.ofEntries(Map.entry(eTitleType.book, 21), Map.entry(eTitleType.dvd, 7)));
-        this.dailyPenaltyFee = new HashMap<eTitleType, Double>(Map.ofEntries(Map.entry(eTitleType.book, 0.1), Map.entry(eTitleType.dvd, 1.0)));
+        this.dayToRent = new HashMap<eTitleType, Integer>(
+                Map.ofEntries(Map.entry(eTitleType.book, MAX_DAYS_TO_RENT_BOOK), Map.entry(eTitleType.dvd, MAX_DAYS_TO_RENT_DVD))
+        );
+
+        this.dailyPenaltyFee = new HashMap<eTitleType, Double>(
+                Map.ofEntries(Map.entry(eTitleType.book, DAILY_PENALTY_FEE_BOOK), Map.entry(eTitleType.dvd, DAILY_PENALTY_FEE_DVD))
+        );
     }
 
     @Override
@@ -123,8 +133,6 @@ public class RentalEntryService implements IRentalEntryService {
         var dateDifference = d1.datesUntil(d2).count();
         var result = dateDifference * dailyPenaltyFee.get(entry.getTitleType());
 
-        // TODO: OTESTOVAT!!!
-
         return result;
     }
 
@@ -185,7 +193,6 @@ public class RentalEntryService implements IRentalEntryService {
         }
 
         return true;
-
     }
 
     @Override
