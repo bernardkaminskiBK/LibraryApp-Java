@@ -17,7 +17,7 @@ public class ProlongRentalPage extends MenuPageBase {
     private final IRentalEntryService _rentalService;
     private final IMemberRepository _memberRepository;
 
-    private UI.UIElements.Menu _chooseRentalItemMenu;
+    private Menu _chooseRentalItemMenu;
 
     public ProlongRentalPage(Application app) {
         super(PAGE_HEADER, app);
@@ -27,6 +27,7 @@ public class ProlongRentalPage extends MenuPageBase {
 
     @Override
     public void display() {
+
         initializeUserMenu();
 
         this.getMenu().display();
@@ -39,7 +40,6 @@ public class ProlongRentalPage extends MenuPageBase {
         InputHelper.readKey("Press any key to return to rentals menu...");
         this.getApplication().navigateBack();
     }
-
 
     private void initializeUserMenu() {
         var members = _memberRepository.getAll();
@@ -74,4 +74,5 @@ public class ProlongRentalPage extends MenuPageBase {
 
         OutputHelper.writeLine("Rental prolonged successfully...");
     }
+
 }

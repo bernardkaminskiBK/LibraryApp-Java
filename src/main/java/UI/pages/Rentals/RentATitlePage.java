@@ -42,8 +42,6 @@ public class RentATitlePage extends MenuPageBase {
         this._memberRepository = app.getInfraServices().getIMemberRepository();
         this._dvdRepository = app.getInfraServices().getIDvdRepository();
         this._bookRepository = app.getInfraServices().getIBookRepository();
-
-        initializeMenu();
     }
 
 
@@ -66,6 +64,8 @@ public class RentATitlePage extends MenuPageBase {
     @Override
     public void display() {
         super.display();
+        clearRentATitleMenu();
+        initializeMenu();
 
         OutputHelper.writeLine("Choose a member to rent to: ");
         this._chooseMemberMenu.display();
@@ -141,4 +141,8 @@ public class RentATitlePage extends MenuPageBase {
         this._queueService.addToQueue(title, member);
     }
 
+    private void clearRentATitleMenu() {
+        this._chooseTitleMenu.clearOptions();
+        this._chooseMemberMenu.clearOptions();
+    }
 }

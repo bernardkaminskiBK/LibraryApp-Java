@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class DateUtils {
 
     public static final String DATE_FORMAT_DD_MM_YYYY = "dd.MM.yyyy";
+    public static final int MAX_ALLOWED_LENGTH_OF_INPUT_DATE = 10;
 
     public static final String nowDate = LocalDate.now().format(DateTimeFormatter.ofPattern(DATE_FORMAT_DD_MM_YYYY));
 

@@ -48,7 +48,7 @@ public class BookRepository implements IBookRepository {
                 entity.getAvailableCopies() + ", " +
                 "'" + eTitleType.book + "', " +
                 entity.getNumberOfPages() + ", " +
-                entity.getISBN() + ", " +
+                "'" + entity.getISBN() + "'" + ", " +
                 null + ", " +
                 null + ", " +
                 entity.getAvailableCopies() + ");";

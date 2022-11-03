@@ -57,6 +57,7 @@ public class MessagesPage extends MenuPageBase {
     @Override
     public void display() {
         super.display();
+        this.getMenu().clearOptions();
         this.initializeMenu();
 
         getMenu().display();

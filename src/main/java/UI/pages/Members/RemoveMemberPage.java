@@ -16,14 +16,15 @@ public class RemoveMemberPage extends MenuPageBase {
 
     public RemoveMemberPage(Application app) {
         super(PAGE_HEADER, app);
-        this._memberRepository = app.getInfraServices().getIMemberRepository();
 
-        initializeOptions();
+        this._memberRepository = app.getInfraServices().getIMemberRepository();
     }
 
     @Override
     public void display() {
         super.display();
+
+        initializeOptions();
 
         OutputHelper.writeLine("Choose a member to delete: ");
         this.getMenu().display();
@@ -42,6 +43,7 @@ public class RemoveMemberPage extends MenuPageBase {
             OutputHelper.writeLine("Member deleted successfully.");
         } finally {
             InputHelper.readKey("Press any key to return to Members page...");
+            this.getMenu().clearOptions();
         }
 
         this.getApplication().navigateBack();
@@ -54,6 +56,7 @@ public class RemoveMemberPage extends MenuPageBase {
             var member = members.get(index);
             this.getMenu().add(new Option(index + 1, member.toString(), () -> this.deleteMember(member)));
         }
+
     }
 
     private ArrayList<Member> getMembers() {

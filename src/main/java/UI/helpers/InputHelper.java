@@ -10,6 +10,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import static utils.date_utils.DateUtils.MAX_ALLOWED_LENGTH_OF_INPUT_DATE;
+
 public final class InputHelper {
 
     private static String resultDate;
@@ -82,6 +84,11 @@ public final class InputHelper {
 
     private static boolean validateDate(String strDate) {
         if (!strDate.trim().equals("")) {
+
+            if (!(strDate.trim().length() <= MAX_ALLOWED_LENGTH_OF_INPUT_DATE)) {
+                return false;
+            }
+
             SimpleDateFormat sdfrmt = new SimpleDateFormat("dd.MM.yyyy");
             sdfrmt.setLenient(false);
 

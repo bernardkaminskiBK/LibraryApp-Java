@@ -7,7 +7,7 @@ import utils.tangible.Action0Param;
 import java.util.*;
 
 public class Menu {
-    private ArrayList<Option> Options;
+    private ArrayList<Option> options;
 
     public Menu() {
         setOptions(new ArrayList<Option>());
@@ -33,18 +33,15 @@ public class Menu {
     }
 
     private ArrayList<Option> getOptions() {
-        return Options;
+        return options;
     }
+
     private void setOptions(ArrayList<Option> value) {
-        Options = value;
+        options = value;
     }
 
-//    public final boolean Contains(String option)
-//    {
-//        return getOptions().FirstOrDefault(op = Objects.equals(> op.Name, option)) == null;
-//    }
+    public void clearOptions() {
+        this.getOptions().clear();
+    }
+
 }
-
-
-
-

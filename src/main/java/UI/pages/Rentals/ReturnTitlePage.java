@@ -32,9 +32,8 @@ public class ReturnTitlePage extends MenuPageBase {
     @Override
     public void display() {
         super.display();
-
+        clearReturnTitleMenu();
         initializeMembersMenu();
-
 
         OutputHelper.writeLine("Choose a member: ");
         _chooseMemberMenu.display();
@@ -43,8 +42,8 @@ public class ReturnTitlePage extends MenuPageBase {
         _chooseTitleMenu.display();
 
         InputHelper.readKey("Press enter to return to Rental page...");
-        this.getApplication().navigateBack();
 
+        this.getApplication().navigateBack();
     }
 
     private void initializeMembersMenu() {
@@ -65,11 +64,10 @@ public class ReturnTitlePage extends MenuPageBase {
         }
 
         if (rentEntries.size() == 0) {
-            OutputHelper.writeLine("The list of titles are empty.");
+            OutputHelper.writeLine("The list of titles is empty.");
             InputHelper.readKey("Press enter to return to Rental page...");
             this.getApplication().navigateBack();
         }
-
     }
 
     private void returnTitle(RentalEntry rentEntry) {
@@ -90,4 +88,10 @@ public class ReturnTitlePage extends MenuPageBase {
     private ArrayList<Member> getAllMembers() {
         return this._memberRepository.getAll();
     }
+
+    private void clearReturnTitleMenu() {
+        this._chooseTitleMenu.clearOptions();
+        this._chooseMemberMenu.clearOptions();
+    }
+
 }
