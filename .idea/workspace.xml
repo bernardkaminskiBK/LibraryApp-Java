@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72ab1684-ba77-446c-8c88-d77f075200dc" name="Changes" comment="finished lecture 29 + refactoring and optimizing menu rendering">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/helpers/OutputHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/helpers/OutputHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AddTitlePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Titles/AddTitlePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/abstractions/services/IMessagingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/services/IMessagingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/abstractions/services/IRentalEntryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/abstractions/services/IRentalEntryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/service/MessagingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/service/MessagingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/service/RentalEntryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/core/service/RentalEntryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/infrastructure/InfrastructureModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infrastructure/InfrastructureModule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/MessageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/repositories/MessageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/tangible/Action0Param.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/tangible/Action0Param.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/tangible/OutObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/tangible/OutObject.java" afterDir="false" />
-    </list>
+    <list default="true" id="72ab1684-ba77-446c-8c88-d77f075200dc" name="Changes" comment="refactoring" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +106,7 @@
       <workItem from="1667391996981" duration="2214000" />
       <workItem from="1667408586449" duration="17759000" />
       <workItem from="1667426712290" duration="98000" />
-      <workItem from="1667466051492" duration="27500000" />
+      <workItem from="1667466051492" duration="27680000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1666886884379</created>
@@ -247,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667508638001</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="refactoring">
+      <created>1667510700457</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1667510700457</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +277,7 @@
     <MESSAGE value="finished lecture 28" />
     <MESSAGE value="finished lecture 29" />
     <MESSAGE value="finished lecture 29 + refactoring and optimizing menu rendering" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished lecture 29 + refactoring and optimizing menu rendering" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
 </project>
