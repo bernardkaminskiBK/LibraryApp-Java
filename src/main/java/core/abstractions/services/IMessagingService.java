@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public interface IMessagingService {
 
-    boolean sendMessage(int memberId, String subject, String message);
+    void sendMessage(int memberId, String subject, String message);
 
     ArrayList<Message> getMessagesForUser(int userId);
 

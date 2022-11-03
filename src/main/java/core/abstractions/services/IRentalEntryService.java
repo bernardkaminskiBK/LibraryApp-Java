@@ -4,7 +4,6 @@ import core.entities.Member;
 import core.entities.RentalEntry;
 import core.entities.Title;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public interface IRentalEntryService {
@@ -12,7 +11,7 @@ public interface IRentalEntryService {
 
     RentalEntry rent(Title title, Member member);
 
-    RentalEntry returnEntry(RentalEntry entry);
+    void returnEntry(RentalEntry entry);
 
     ArrayList<RentalEntry> getByUnreturnedMember(int memberId);
 
@@ -26,6 +25,6 @@ public interface IRentalEntryService {
 
     boolean canProlongRental(RentalEntry entry);
 
-    boolean prolongRental(RentalEntry entry);
+    void prolongRental(RentalEntry entry);
 
 }

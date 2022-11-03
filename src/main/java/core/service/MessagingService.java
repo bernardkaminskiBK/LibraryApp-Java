@@ -21,20 +21,16 @@ public class MessagingService implements IMessagingService {
     }
 
     public final ArrayList<Message> getMessagesForUser(int userid) {
-        var result = this._messageRepository.getMembersById(userid);
-
-        return result;
+        return this._messageRepository.getMembersById(userid);
     }
 
-    public final boolean sendMessage(int memberId, String subject, String message) {
+    public final void sendMessage(int memberId, String subject, String message) {
         var msg = new Message();
         msg.setMemberId(memberId);
         msg.setMessageSubject(subject);
         msg.setMessageContext(message);
         msg.setSendData(nowDate);
 
-        var result = this._messageRepository.create(msg);
-
-        return result != null;
+        this._messageRepository.create(msg);
     }
 }

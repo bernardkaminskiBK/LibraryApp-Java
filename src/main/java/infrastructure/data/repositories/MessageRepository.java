@@ -68,7 +68,6 @@ public class MessageRepository extends RowMapper implements IMessageRepository {
 
     @Override
     public Message create(Message entity) {
-
         String insertStmt = "INSERT INTO \n" +
                 "`librarydb`.`message` (`MemberId`, `MessageContext`, `MessageSubject`, `SendData`) \n" +
                 "VALUES " +

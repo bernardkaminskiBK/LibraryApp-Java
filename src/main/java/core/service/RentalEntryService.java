@@ -93,9 +93,7 @@ public class RentalEntryService implements IRentalEntryService {
         entry.setRentedDate(nowDate);
         entry.setTimesProlonged(0);
 
-        var result = _rentalEntryRepository.create(entry);
-
-        return result;
+        return _rentalEntryRepository.create(entry);
     }
 
     private void updateAvailableTitleCopies(Title title, eTitleCountUpdate action) {
@@ -116,15 +114,13 @@ public class RentalEntryService implements IRentalEntryService {
     }
 
     @Override
-    public RentalEntry returnEntry(RentalEntry entry) {
+    public void returnEntry(RentalEntry entry) {
         updateAvailableTitleCopies(entry.getTitle(), eTitleCountUpdate.add);
 
         entry.setReturnDate(nowDate);
         this._rentalEntryRepository.update(entry.getId(), entry);
 
         initializeEventSubscription(entry);
-
-        return null;
     }
 
     @Override
@@ -144,9 +140,8 @@ public class RentalEntryService implements IRentalEntryService {
         LocalDate d2 = LocalDate.parse(nowDate, dtf);
 
         var dateDifference = d1.datesUntil(d2).count();
-        var result = dateDifference * dailyPenaltyFee.get(entry.getTitleType());
 
-        return result;
+        return dateDifference * dailyPenaltyFee.get(entry.getTitleType());
     }
 
     @Override
@@ -209,10 +204,9 @@ public class RentalEntryService implements IRentalEntryService {
     }
 
     @Override
-    public boolean prolongRental(RentalEntry entry) {
+    public void prolongRental(RentalEntry entry) {
         entry.setTimesProlonged(entry.getTimesProlonged() + 1);
         this._rentalEntryRepository.update(entry.getId(), entry);
-        return true;
     }
 
 }

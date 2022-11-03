@@ -6,8 +6,6 @@ import core.abstractions.repositories.IBookRepository;
 import core.abstractions.repositories.IDvdRepository;
 import core.abstractions.repositories.IMessageRepository;
 import core.abstractions.repositories.IRentalEntryRepository;
-import core.abstractions.services.IMessagingService;
-import core.service.MessagingService;
 import infrastructure.data.repositories.BookRepository;
 import infrastructure.data.repositories.DvdRepository;
 import infrastructure.data.repositories.MessageRepository;

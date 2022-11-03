@@ -77,7 +77,6 @@ public class AddTitlePage extends MenuPageBase {
         } finally {
             InputHelper.readKey("Press any key to continue...");
             this.getApplication().navigateBack();
-
         }
     }
 
@@ -107,7 +106,6 @@ public class AddTitlePage extends MenuPageBase {
             InputHelper.readKey("Press any key to continue...");
             this.getApplication().navigateBack();
         }
-
     }
 
     private void initializeOptions() {

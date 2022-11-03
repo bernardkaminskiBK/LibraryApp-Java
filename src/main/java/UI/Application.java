@@ -26,10 +26,11 @@ public class Application {
 
     // name of the page
     private String Title;
+
     private HashMap<Class, PageBase> Pages;
     private Stack<PageBase> history;
-    private InfrastructureServiceProvider infraServices;
 
+    private InfrastructureServiceProvider infraServices;
     private CoreServiceProvider coreServices;
 
     public Application(String title) {
