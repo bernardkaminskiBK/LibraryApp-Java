@@ -11,6 +11,9 @@ import core.abstractions.services.IRentalEntryService;
 import core.entities.*;
 import core.enums.eTitleCountUpdate;
 import core.enums.eTitleType;
+import utils.eventHandler.EventProducer;
+import utils.eventHandler.IEvent;
+import core.events.eventArgs.TitleReturnedEventArgs;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -63,6 +66,15 @@ public class RentalEntryService implements IRentalEntryService {
         );
     }
 
+    private void initializeEventSubscription(RentalEntry entry) {
+        EventProducer eventProducer = new EventProducer();
+        IEvent<TitleReturnedEventArgs> eventSink = _queueService::onTitleReturned;
+        eventProducer.myEvent.subscribe(eventSink);
+        eventProducer.onMyEvent(new TitleReturnedEventArgs(entry.getTitle()));
+        eventProducer.myEvent.unSubscribe(eventSink);
+        eventProducer.myEvent.close();
+    }
+
     @Override
     public ArrayList<RentalEntry> getAllEntries() {
         return this._rentalEntryRepository.getAll();
@@ -105,11 +117,12 @@ public class RentalEntryService implements IRentalEntryService {
 
     @Override
     public RentalEntry returnEntry(RentalEntry entry) {
-
         updateAvailableTitleCopies(entry.getTitle(), eTitleCountUpdate.add);
 
         entry.setReturnDate(nowDate);
         this._rentalEntryRepository.update(entry.getId(), entry);
+
+        initializeEventSubscription(entry);
 
         return null;
     }
@@ -140,15 +153,15 @@ public class RentalEntryService implements IRentalEntryService {
     public ArrayList<RentalEntry> getRentalEntriesPastDue() {
         var notReturnedEntries = this._rentalEntryRepository.getRentalEntriesByReturnDate();
 
-        var result = new ArrayList<RentalEntry>();
+        var pastDueEntries = new ArrayList<RentalEntry>();
 
         for (var entry : notReturnedEntries) {
             if (isEntryPastDue(entry)) {
-                result.add(entry);
+                pastDueEntries.add(entry);
             }
         }
 
-        return result;
+        return pastDueEntries;
     }
 
     @Override

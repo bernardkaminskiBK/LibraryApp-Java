@@ -5,15 +5,18 @@ import com.google.inject.Injector;
 import core.abstractions.repositories.IBookRepository;
 import core.abstractions.repositories.IDvdRepository;
 import core.abstractions.repositories.IMemberRepository;
+import core.abstractions.repositories.IMessageRepository;
 import infrastructure.data.repositories.BookRepository;
 import infrastructure.data.repositories.DvdRepository;
 import infrastructure.data.repositories.MemberRepository;
+import infrastructure.data.repositories.MessageRepository;
 
 public class InfrastructureServiceProvider {
 
     private IDvdRepository iDvdRepository;
     private IBookRepository iBookRepository;
     private IMemberRepository iMemberRepository;
+    private IMessageRepository iMessageRepository;
 
     private final Injector injector;
 
@@ -22,6 +25,7 @@ public class InfrastructureServiceProvider {
         injectDvdRepositoryClass();
         injectBookRepositoryClass();
         injectMemberRepositoryClass();
+        injectMessageRepositoryClass();
     }
 
     private void injectDvdRepositoryClass() {
@@ -37,6 +41,11 @@ public class InfrastructureServiceProvider {
     private void injectMemberRepositoryClass() {
         IMemberRepository member = injector.getInstance(MemberRepository.class);
         setIMemberRepository(member);
+    }
+
+    private void injectMessageRepositoryClass() {
+        IMessageRepository message = injector.getInstance(MessageRepository.class);
+        setIMessageRepository(message);
     }
 
     public IDvdRepository getIDvdRepository() {
@@ -63,4 +72,11 @@ public class InfrastructureServiceProvider {
         this.iMemberRepository = iMemberRepository;
     }
 
+    public IMessageRepository getIMessageRepository() {
+        return iMessageRepository;
+    }
+
+    public void setIMessageRepository(IMessageRepository iMessageRepository) {
+        this.iMessageRepository = iMessageRepository;
+    }
 }
