@@ -1,8 +1,9 @@
 package infrastructure.data;
 
+import javax.sql.rowset.CachedRowSet;
+import javax.sql.rowset.RowSetProvider;
 import java.sql.*;
 
-import com.sun.rowset.CachedRowSetImpl;
 
 public class DatabaseContext {
 
@@ -19,7 +20,7 @@ public class DatabaseContext {
         }
 
         try {
-            conn = DriverManager.getConnection(JDBC_DRIVER, "root", "l7quqzftfPQWf50ZQQlH");
+            conn = DriverManager.getConnection(JDBC_DRIVER, "root", "");
         } catch (SQLException e) {
             System.out.println("Connection Failed! Check output console" + e);
             e.printStackTrace();
@@ -43,7 +44,7 @@ public class DatabaseContext {
 
         Statement stmt = null;
         ResultSet resultSet = null;
-        CachedRowSetImpl crs = null;
+        CachedRowSet crs = null;
         try {
             dbConnect();
             stmt = conn.createStatement();
@@ -51,7 +52,7 @@ public class DatabaseContext {
             //CachedRowSet Implementation
             //In order to prevent "java.sql.SQLRecoverableException: Closed Connection: next" error
             //We are using CachedRowSet
-            crs = new CachedRowSetImpl();
+            crs = RowSetProvider.newFactory().createCachedRowSet();;
             crs.populate(resultSet);
         } catch (SQLException e) {
             System.out.println("Problem occurred at executeQuery operation : " + e);
