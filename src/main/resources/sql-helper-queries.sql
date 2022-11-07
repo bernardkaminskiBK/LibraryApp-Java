@@ -121,9 +121,19 @@ INSERT INTO `librarydb`.`rental_entries`
 (`MemberId`, `RentedDate`, `ReturnDate`, `TitleId`, `TimesProlonged`, `TitleType`)
 VALUES (2, '31.12.2000', null, 1, 0, 0);
 
-INSERT INTO `librarydb`.`title` (`Author`, `AvailableCopies`, `Discriminator`, `NumberOfPages`, `ISBN`,
-                                 `NumberOfChapters`, `NumberOfMinutes`, `TotalAvailableCopies`, `Name`)
-VALUES ('author', 2, 'Dvd', null, null, 3, 120, 2, 'rambo');
+INSERT INTO librarydb.title(Author, Name, AvailableCopies, Discriminator, NumberOfPages, ISBN, NumberOfChapters, NumberOfMinutes, TotalAvailableCopies)
+VALUES
+    ('Harper Lee','To Kill a Mockingbird', 3, 'Book', 500, '9781234567897', NULL, NULL, 0),
+    ('Leo Tolstoy','War and Peace', 5, 'Book', 620, '7754611466715', NULL, NULL, 0),
+    ('William Faulkner','The Sound and the Fury', 7, 'Book', 205, '5905746069865', NULL, NULL, 0),
+    ('George Orwell','Nineteen Eighty-Four', 2, 'Book', 320, '3371649728152', NULL, NULL, 0),
+    ('William Faulkner','As I Lay Dying', 1, 'Book', 450, '0322988088678', NULL, NULL, 0),
+    ('Enrico Casarosa','Luca', 5, 'Dvd', NULL, NULL, 6, 110, 0),
+    ('Clint Eastwood','The Mule', 5, 'Dvd', NULL, NULL,6, 115, 0),
+    ('Scott Mosier and Yarrow Cheney','Dr. Seuss’ The Grinch', 5, 'Dvd', NULL, NULL, 6, 90, 0),
+    ('Shawn Levy','Free Guy', 5, 'Dvd', NULL, NULL, 6, 130, 0),
+    ('Roger Allers and Rob Minkoff','The Lion King', 5,'Dvd', NULL, NULL, 6, 140, 0);
+
 
 SELECT *
 FROM librarydb.rental_entries

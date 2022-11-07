@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39104634-045b-46b2-b2c7-3b3c67783210" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="39104634-045b-46b2-b2c7-3b3c67783210" name="Changes" comment="changed approach to get cached row set, added possibility to exporting jar files with dependencies">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/infrastructure/data/DatabaseContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/infrastructure/data/DatabaseContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sql-helper-queries.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql-helper-queries.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,8 +95,16 @@
       <workItem from="1666712059935" duration="916000" />
       <workItem from="1666876068394" duration="7849000" />
       <workItem from="1667830812030" duration="4590000" />
-      <workItem from="1667847844936" duration="4071000" />
+      <workItem from="1667847844936" duration="7074000" />
     </task>
+    <task id="LOCAL-00001" summary="changed approach to get cached row set, added possibility to exporting jar files with dependencies">
+      <created>1667852210552</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667852210552</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +120,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changed approach to get cached row set, added possibility to exporting jar files with dependencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed approach to get cached row set, added possibility to exporting jar files with dependencies" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
