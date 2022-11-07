@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="39104634-045b-46b2-b2c7-3b3c67783210" name="Changes" comment="changed approach to get cached row set, added possibility to exporting jar files with dependencies">
+    <list default="true" id="39104634-045b-46b2-b2c7-3b3c67783210" name="Changes" comment="updated sql-helper-queries">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sql-helper-queries.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sql-helper-queries.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/UI/pages/Rentals/ProlongRentalPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/UI/pages/Rentals/ProlongRentalPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +95,7 @@
       <workItem from="1666712059935" duration="916000" />
       <workItem from="1666876068394" duration="7849000" />
       <workItem from="1667830812030" duration="4590000" />
-      <workItem from="1667847844936" duration="7074000" />
+      <workItem from="1667847844936" duration="8340000" />
     </task>
     <task id="LOCAL-00001" summary="changed approach to get cached row set, added possibility to exporting jar files with dependencies">
       <created>1667852210552</created>
@@ -104,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667852210552</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updated sql-helper-queries">
+      <created>1667855516491</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667855516491</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,21 +130,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changed approach to get cached row set, added possibility to exporting jar files with dependencies" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed approach to get cached row set, added possibility to exporting jar files with dependencies" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/UI/Application.java</url>
-          <line>143</line>
-          <properties class="UI.Application">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="updated sql-helper-queries" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated sql-helper-queries" />
   </component>
 </project>

@@ -37,7 +37,7 @@ public class ProlongRentalPage extends MenuPageBase {
             this._chooseRentalItemMenu.display();
         }
 
-        InputHelper.readKey("Press any key to return to rentals menu...");
+        InputHelper.readKey("Press enter to return to rentals menu...");
         this.getApplication().navigateBack();
     }
 
